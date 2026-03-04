@@ -195,7 +195,7 @@ pub fn run() {
             setup_tray(&app_handle).expect("failed to setup tray");
 
             // Create and manage the state manager
-            let state_manager = crate::live::state::AppStateManager::new(app_handle.clone());
+            let state_manager = crate::live::state::AppStateManager::new();
             app.manage(state_manager.clone());
 
             crate::live::skill_monitor_init::init_skill_monitor_from_settings(

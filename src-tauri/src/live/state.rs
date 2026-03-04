@@ -16,13 +16,10 @@ use log::{info, trace, warn};
 use prost::Message;
 use serde::Serialize;
 use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::sync::Mutex;
 use std::time::{Duration, Instant};
 use tauri::{AppHandle, Emitter, Manager};
-use tokio::sync::{
-    mpsc::{UnboundedReceiver, UnboundedSender, error::TryRecvError, unbounded_channel},
-    watch,
-};
+use tokio::sync::mpsc::{UnboundedReceiver, UnboundedSender, error::TryRecvError, unbounded_channel};
 
 /// Safely emits an event to the frontend, handling WebView2 state errors gracefully.
 /// This prevents the app from freezing when the WebView is in an invalid state, maybe.
@@ -84,8 +81,6 @@ pub enum StateEvent {
     SyncNearDeltaInfo(blueprotobuf::SyncNearDeltaInfo),
     /// A notify revive user event.
     NotifyReviveUser(blueprotobuf::NotifyReviveUser),
-    /// A pause encounter event.
-    PauseEncounter(bool),
     /// A reset encounter event. Contains whether this was a manual reset by the user.
     #[allow(dead_code)]
     ResetEncounter {
@@ -153,15 +148,9 @@ pub struct ActiveBuff {
 }
 
 #[derive(Debug, Clone)]
-pub struct LiveStateSnapshot {
-    pub encounter: Encounter,
-    pub boss_only_dps: bool,
-    pub event_update_rate_ms: u64,
-}
-
-#[derive(Debug, Clone)]
 pub enum LiveControlCommand {
     StateEvent(StateEvent),
+    TogglePauseEncounter,
     SetBossOnlyDps(bool),
     SetEventUpdateRateMs(u64),
     SetMonitoredBuffs(Vec<i32>),
@@ -330,38 +319,18 @@ fn extract_scene_id_from_attr_collection(attrs: &blueprotobuf::AttrCollection) -
 /// Manages the state of the application.
 #[derive(Clone)]
 pub struct AppStateManager {
-    snapshot_tx: watch::Sender<Arc<LiveStateSnapshot>>,
-    snapshot_rx: watch::Receiver<Arc<LiveStateSnapshot>>,
     control_tx: UnboundedSender<LiveControlCommand>,
-    control_rx: Arc<Mutex<Option<UnboundedReceiver<LiveControlCommand>>>>,
+    control_rx: std::sync::Arc<Mutex<Option<UnboundedReceiver<LiveControlCommand>>>>,
 }
 
 impl AppStateManager {
     /// Creates a new `AppStateManager`.
-    ///
-    /// # Arguments
-    ///
-    /// * `app_handle` - A handle to the Tauri application instance.
-    pub fn new(app_handle: AppHandle) -> Self {
-        let initial_state = AppState::new(app_handle);
-        let initial_snapshot = Arc::new(build_live_state_snapshot(&initial_state));
-        let (snapshot_tx, snapshot_rx) = watch::channel(initial_snapshot);
+    pub fn new() -> Self {
         let (control_tx, control_rx) = unbounded_channel();
         Self {
-            snapshot_tx,
-            snapshot_rx,
             control_tx,
-            control_rx: Arc::new(Mutex::new(Some(control_rx))),
+            control_rx: std::sync::Arc::new(Mutex::new(Some(control_rx))),
         }
-    }
-
-    pub fn latest_snapshot(&self) -> Arc<LiveStateSnapshot> {
-        self.snapshot_rx.borrow().clone()
-    }
-
-    pub fn publish_snapshot_from_state(&self, state: &AppState) {
-        let snapshot = Arc::new(build_live_state_snapshot(state));
-        let _ = self.snapshot_tx.send(snapshot);
     }
 
     fn send_control(&self, command: LiveControlCommand) -> Result<(), String> {
@@ -381,7 +350,6 @@ impl AppStateManager {
         for event in events {
             self.apply_event(state, event).await;
         }
-        self.publish_snapshot_from_state(state);
     }
 
     pub async fn apply_pending_control_commands(&self, state: &mut AppState) {
@@ -409,6 +377,10 @@ impl AppStateManager {
 
     pub async fn send_state_event(&self, event: StateEvent) -> Result<(), String> {
         self.send_control(LiveControlCommand::StateEvent(event))
+    }
+
+    pub fn send_toggle_pause_encounter(&self) -> Result<(), String> {
+        self.send_control(LiveControlCommand::TogglePauseEncounter)
     }
 
     async fn apply_event(&self, state: &mut AppState, event: StateEvent) {
@@ -475,9 +447,6 @@ impl AppStateManager {
             StateEvent::NotifyReviveUser(data) => {
                 self.process_notify_revive_user(state, data).await;
             }
-            StateEvent::PauseEncounter(paused) => {
-                state.set_encounter_paused(paused);
-            }
             StateEvent::ResetEncounter { is_manual } => {
                 state.pending_auto_reset = None;
                 self.reset_encounter(state, is_manual).await;
@@ -490,6 +459,10 @@ impl AppStateManager {
         match command {
             LiveControlCommand::StateEvent(event) => {
                 self.apply_event(state, event).await;
+            }
+            LiveControlCommand::TogglePauseEncounter => {
+                let paused = state.encounter.is_encounter_paused;
+                state.set_encounter_paused(!paused);
             }
             LiveControlCommand::SetBossOnlyDps(enabled) => {
                 state.boss_only_dps = enabled;
@@ -540,8 +513,6 @@ impl AppStateManager {
                 state.monitored_buff_ids = monitored_buff_ids;
             }
         }
-
-        self.publish_snapshot_from_state(state);
     }
 
     async fn on_server_change(&self, state: &mut AppState) {
@@ -1338,10 +1309,6 @@ impl AppStateManager {
             monitored_buff_ids,
         })
     }
-
-    pub fn current_event_update_rate_ms(&self) -> u64 {
-        self.snapshot_rx.borrow().event_update_rate_ms
-    }
 }
 
 fn process_buff_effect_bytes(
@@ -1470,14 +1437,6 @@ fn process_buff_effect_bytes(
     Some(payload)
 }
 
-fn build_live_state_snapshot(state: &AppState) -> LiveStateSnapshot {
-    LiveStateSnapshot {
-        encounter: state.encounter.clone(),
-        boss_only_dps: state.boss_only_dps,
-        event_update_rate_ms: state.event_update_rate_ms,
-    }
-}
-
 impl AppStateManager {
     /// Updates and emits events.
     pub async fn update_and_emit_events_with_state(&self, state: &mut AppState) {
@@ -1515,7 +1474,6 @@ impl AppStateManager {
         }
 
         let app_handle_opt = state.event_manager.get_app_handle();
-        self.publish_snapshot_from_state(state);
 
         if let Some(app_handle) = app_handle_opt {
             safe_emit(&app_handle, "live-data", payload);
@@ -1527,7 +1485,6 @@ impl AppStateManager {
                         continue;
                     }
                 }
-                self.publish_snapshot_from_state(state);
             }
         }
     }

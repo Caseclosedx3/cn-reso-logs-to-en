@@ -119,13 +119,7 @@ pub async fn reset_encounter(
 pub async fn toggle_pause_encounter(
     state_manager: tauri::State<'_, AppStateManager>,
 ) -> Result<(), String> {
-    let state_manager = state_manager.inner().clone();
-    tauri::async_runtime::spawn(async move {
-        let is_paused = state_manager.latest_snapshot().encounter.is_encounter_paused;
-        let _ = state_manager
-            .send_state_event(StateEvent::PauseEncounter(!is_paused))
-            .await;
-    });
+    state_manager.send_toggle_pause_encounter()?;
     Ok(())
 }
 
