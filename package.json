@@ -1,6 +1,6 @@
 {
   "name": "resonance-logs-cn",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "type": "module",
   "scripts": {
@@ -12,6 +12,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "tauri": "tauri",
+    "doc:html": "node scripts/build-doc-html.cjs",
     "format": "prettier --write .",
     "lint": "prettier --check . && eslint ."
   },
