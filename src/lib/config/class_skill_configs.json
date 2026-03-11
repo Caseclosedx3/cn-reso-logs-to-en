@@ -395,5 +395,197 @@
         "imagePath": "/images/verdant_oracle/skill/weapon_fh-01_ult03_-922524136805580252.png"
       }
     ]
+  },
+  "heavy_guardian": {
+    "classKey": "heavy_guardian",
+    "className": "Heavy Guardian",
+    "classId": 3,
+    "defaultMonitoredBuffIds": [510072, 50042, 50057, 50058, 2201570],
+    "derivations": [
+      {
+        "sourceSkillId": 1901,
+        "derivedSkillId": 1909,
+        "triggerBuffBaseId": 50057,
+        "derivedName": "Halberd's Edge (Shield Slam)",
+        "derivedImagePath": "/images/heavy_guardian/skill/weapon_wr_skill_atk_5193386965498625783.png"
+      },
+      {
+        "sourceSkillId": 1935,
+        "derivedSkillId": 1935,
+        "triggerBuffBaseId": 50036,
+        "derivedName": "Rageblow",
+        "derivedImagePath": "/images/heavy_guardian/skill/weapon_wr-01_tg01_01_5050521416671862124.png"
+      },
+      {
+        "sourceSkillId": 50050,
+        "derivedSkillId": 50037,
+        "triggerBuffBaseId": 50037,
+        "derivedName": "Countercrush (Counter Storm)",
+        "derivedImagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx06_-6046073424834001729.png"
+      }
+    ],
+    "skills": [
+      {
+        "skillId": 1901,
+        "name": "Halberd's Edge",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr_skill_atk_5193386965498625783.png"
+      },
+      {
+        "skillId": 199902,
+        "name": "Terra Sunder",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx03_01_7540499432020820580.png"
+      },
+      {
+        "skillId": 199903,
+        "name": "Stone Fist",
+        "imagePath": "/images/heavy_guardian/skill/weaponn-wr_sikll_atk_02_-3427760020264754374.png"
+      },
+      {
+        "skillId": 50033,
+        "name": "Sandgrip",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx05_4449213264665832948.png"
+      },
+      {
+        "skillId": 50049,
+        "name": "Sandshroud",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx02_-1640085009780895989.png"
+      },
+      {
+        "skillId": 50050,
+        "name": "Countercrush",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx06_-6046073424834001729.png"
+      },
+      {
+        "skillId": 50058,
+        "name": "Brave Bastion",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx07_-1036918671827498753.png"
+      },
+      {
+        "skillId": 50057,
+        "name": "Stoneform",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx04_-5695282671673640048.png"
+      },
+      {
+        "skillId": 50024,
+        "name": "Shield",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx01_6042688793879498680.png"
+      },
+      {
+        "skillId": 1932,
+        "name": "Shield Combo",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx08_4948451430898267891.png"
+      },
+      {
+        "skillId": 1935,
+        "name": "Rageblow",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_tg01_01_5050521416671862124.png"
+      },
+      {
+        "skillId": 2201570,
+        "name": "Rock Shield",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx09_-7702891498266688601.png"
+      },
+      {
+        "skillId": 50052,
+        "name": "Magic Shield",
+        "imagePath": "/images/heavy_guardian/skill/weapon_wr-01_kx10_-3397696782494578693.png"
+      }
+    ]
+  },
+  "marksman": {
+    "classKey": "marksman",
+    "className": "Marksman",
+    "classId": 7,
+    "defaultMonitoredBuffIds": [510072, 55223, 55221],
+    "derivations": [
+      {
+        "sourceSkillId": 220104,
+        "derivedSkillId": 220104,
+        "triggerBuffBaseId": 55223,
+        "derivedName": "Storm Arrow (Focused)",
+        "derivedImagePath": "/images/marksman/skill/weapon_gj-01_tg01_-9176826413636765268.png"
+      },
+      {
+        "sourceSkillId": 2289,
+        "derivedSkillId": 2289,
+        "triggerBuffBaseId": 55221,
+        "derivedName": "Arrow Rain (Photon Regorge)",
+        "derivedImagePath": "/images/marksman/skill/weapon_gj-01_kx03_-8553116083918476491.png"
+      },
+      {
+        "sourceSkillId": 220110,
+        "derivedSkillId": 55231,
+        "triggerBuffBaseId": 55231,
+        "derivedName": "Blast Shot (Buff Explosion)",
+        "derivedImagePath": "/images/marksman/skill/weapon_gj-01_kx08_-6832754060862671505.png"
+      }
+    ],
+    "skills": [
+      {
+        "skillId": 2201,
+        "name": "Bullseye",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_atk_-3714649613547613610.png"
+      },
+      {
+        "skillId": 220104,
+        "name": "Storm Arrow",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_tg01_-9176826413636765268.png"
+      },
+      {
+        "skillId": 220106,
+        "name": "Double Arrow",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_tg02_-3539017437694175396.png"
+      },
+      {
+        "skillId": 220111,
+        "name": "Photon Reforge - Quadraflare",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_tg03_-1621706960820127248.png"
+      },
+      {
+        "skillId": 220102,
+        "name": "Torrent Volley",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx01_3165960285088218060.png"
+      },
+      {
+        "skillId": 2295,
+        "name": "Luminary Bolt (Gravity Orb)",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_ult_-2175116978543327578.png"
+      },
+      {
+        "skillId": 2289,
+        "name": "Arrow Rain",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx03_-8553116083918476491.png"
+      },
+      {
+        "skillId": 55240,
+        "name": "Radiance Barrage",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx04_6742640479416773688.png"
+      },
+      {
+        "skillId": 220109,
+        "name": "Deter Shot",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx06_3895524428175213267.png"
+      },
+      {
+        "skillId": 2203512,
+        "name": "Stomp",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx07_-6773823406831614001.png"
+      },
+      {
+        "skillId": 220110,
+        "name": "Blast Shot",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx08_-6832754060862671505.png"
+      },
+      {
+        "skillId": 2292,
+        "name": "Phantom Direwolf",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx09_1929869898022069248.png"
+      },
+      {
+        "skillId": 2296,
+        "name": "Phantom Falcon",
+        "imagePath": "/images/marksman/skill/weapon_gj-01_kx10_-8344665819022993474.png"
+      }
+    ]
   }
 }
