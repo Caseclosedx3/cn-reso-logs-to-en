@@ -36,5 +36,103 @@
       "imageOn": "/images/frost_mage/res/main_snow_on_7752257676452734961.png",
       "imageOff": "/images/frost_mage/res/main_snow_off_3542757998136383818.png"
     }
+  ],
+  "stormblade": [
+    {
+      "type": "bar",
+      "label": "Energy",
+      "currentIndex": 4,
+      "maxIndex": 5,
+      "imageOn": "/images/stormblade/res/main_tdl_bar_on.png",
+      "imageOff": "/images/stormblade/res/main_tdl_bar_off.png",
+      "buffBaseId": 43201
+    }
+  ],
+  "verdant_oracle": [
+    {
+      "type": "bar",
+      "label": "Energy",
+      "currentIndex": 4,
+      "maxIndex": 5,
+      "imageOn": "/images/verdant_oracle/res/main_fh_bar_on.png",
+      "imageOff": "/images/verdant_oracle/res/main_fh_bar_off.png",
+      "buffBaseId": 2202120
+    }
+  ],
+  "heavy_guardian": [
+    {
+      "type": "bar",
+      "label": "Fury",
+      "currentIndex": 4,
+      "maxIndex": 5,
+      "imageOn": "/images/heavy_guardian/res/main_wr_bar_on.png",
+      "imageOff": "/images/heavy_guardian/res/main_wr_bar_off.png",
+      "buffBaseId": 50042
+    },
+    {
+      "type": "charges",
+      "label": "Shield Charges",
+      "currentIndex": 6,
+      "maxIndex": 7,
+      "imageOn": "/images/heavy_guardian/res/main_wr_on.png",
+      "imageOff": "/images/heavy_guardian/res/main_wr_off.png"
+    }
+  ],
+  "marksman": [
+    {
+      "type": "bar",
+      "label": "Energy",
+      "currentIndex": 4,
+      "maxIndex": 5,
+      "imageOn": "/images/marksman/res/main_gj_bar_on.png",
+      "imageOff": "/images/marksman/res/main_gj_bar_off.png",
+      "buffBaseId": 55223
+    },
+    {
+      "type": "charges",
+      "label": "Photon Charges",
+      "currentIndex": 6,
+      "maxIndex": 7,
+      "imageOn": "/images/marksman/res/main_gj_on.png",
+      "imageOff": "/images/marksman/res/main_gj_off.png"
+    }
+  ],
+  "shield_knight": [
+    {
+      "type": "bar",
+      "label": "Holy Energy",
+      "currentIndex": 4,
+      "maxIndex": 5,
+      "imageOn": "/images/shield_knight/res/main_jd_bar_on.png",
+      "imageOff": "/images/shield_knight/res/main_jd_bar_off.png",
+      "buffBaseId": 2206240
+    },
+    {
+      "type": "charges",
+      "label": "Radiance Stacks",
+      "currentIndex": 6,
+      "maxIndex": 7,
+      "imageOn": "/images/shield_knight/res/main_jd_on.png",
+      "imageOff": "/images/shield_knight/res/main_jd_off.png"
+    }
+  ],
+  "beat_performer": [
+    {
+      "type": "bar",
+      "label": "Rhythm",
+      "currentIndex": 4,
+      "maxIndex": 5,
+      "imageOn": "/images/beat_performer/res/main_jt_bar_on.png",
+      "imageOff": "/images/beat_performer/res/main_jt_bar_off.png",
+      "buffBaseId": 55311
+    },
+    {
+      "type": "charges",
+      "label": "Beat Charges",
+      "currentIndex": 6,
+      "maxIndex": 7,
+      "imageOn": "/images/beat_performer/res/main_jt_on.png",
+      "imageOff": "/images/beat_performer/res/main_jt_off.png"
+    }
   ]
 }
