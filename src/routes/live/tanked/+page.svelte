@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getClassIcon, tooltip } from "$lib/utils.svelte";
+  import { getClassIcon, onClassIconError, tooltip } from "$lib/utils.svelte";
   import { settings, SETTINGS } from "$lib/settings-store";
   import { getLiveData } from "$lib/stores/live-meter-store.svelte";
   import { computePlayerRows } from "$lib/live-derived";
@@ -159,6 +159,7 @@
                 class="object-contain"
                 src={getClassIcon(className)}
                 alt="Class icon"
+                onerror={onClassIconError}
                 {@attach tooltip(
                   () =>
                     formatClassSpecLabel(player.className, player.classSpecName) ||
