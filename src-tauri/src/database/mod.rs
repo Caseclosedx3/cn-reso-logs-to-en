@@ -425,20 +425,15 @@ pub fn save_encounter(encounter: &Encounter, metadata: &EncounterMetadata) {
                 scene_name: metadata.scene_name.clone(),
                 duration: metadata.duration,
                 active_combat_duration: metadata.active_combat_duration,
+                is_manually_reset: if metadata.is_manually_reset { 1 } else { 0 },
+                boss_names: Some(boss_names_json),
+                player_names: Some(player_names_json),
             };
 
             diesel::insert_into(e::encounters)
                 .values(&new_enc)
                 .execute(tx)?;
             let encounter_id: i32 = e::encounters.order(e::id.desc()).select(e::id).first(tx)?;
-
-            diesel::update(e::encounters.filter(e::id.eq(encounter_id)))
-                .set((
-                    e::is_manually_reset.eq(if metadata.is_manually_reset { 1 } else { 0 }),
-                    e::boss_names.eq(Some(boss_names_json)),
-                    e::player_names.eq(Some(player_names_json)),
-                ))
-                .execute(tx)?;
 
             let payload = m::NewEncounterData {
                 encounter_id,
