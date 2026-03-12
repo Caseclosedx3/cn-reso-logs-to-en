@@ -56,9 +56,9 @@
   <div class="relative z-10 flex h-[85vh] w-[90vw] max-w-3xl flex-col overflow-hidden rounded-xl border border-border bg-card shadow-2xl">
     <div class="flex items-center justify-between border-b border-border px-6 py-4">
       <div>
-        <h2 class="text-xl font-semibold">发现新版本</h2>
+        <h2 class="text-xl font-semibold">New Version Available</h2>
         <p class="mt-1 text-sm text-muted-foreground">
-          当前版本 v{currentVersion}，最新版本 v{info.version}
+          Current version v{currentVersion} — Latest version v{info.version}
         </p>
       </div>
       <button
@@ -80,13 +80,13 @@
           {@html html}
         </div>
       {:else}
-        <p class="text-sm text-muted-foreground">该版本暂无更新说明。</p>
+        <p class="text-sm text-muted-foreground">No release notes available for this version.</p>
       {/if}
     </div>
 
     <div class="space-y-3 border-t border-border px-6 py-4">
       <p class="text-sm text-muted-foreground">
-        若 GitHub 下载较慢，也可前往 QQ 群（1084866292）获取最新版本安装包。
+        If GitHub downloads are slow, you can also get the latest installer from the project's releases page.
       </p>
       <div class="flex items-center justify-end gap-2">
         <button
@@ -94,14 +94,14 @@
           class="rounded-md border border-border px-3 py-2 text-sm transition-colors hover:bg-muted"
           onclick={close}
         >
-          关闭
+          Close
         </button>
         <button
           type="button"
           class="rounded-md bg-primary px-3 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           onclick={openDownloadPage}
         >
-          前往 GitHub 下载
+          Download on GitHub
         </button>
       </div>
     </div>
