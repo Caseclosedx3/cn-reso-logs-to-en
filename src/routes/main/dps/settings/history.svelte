@@ -8,7 +8,6 @@
 
   const SETTINGS_CATEGORY = "history";
 
-  // Collapsible section state - all collapsed by default
   let expandedSections = $state({
     general: false,
     dpsPlayers: false,
@@ -32,7 +31,7 @@
         class="w-full flex items-center justify-between px-4 py-3 hover:bg-muted/30 transition-colors"
         onclick={() => toggleSection('general')}
       >
-        <h2 class="text-base font-semibold text-foreground">通用设置</h2>
+        <h2 class="text-base font-semibold text-foreground">General Settings</h2>
         <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.general ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.general}
@@ -40,53 +39,53 @@
           <SettingsSelect
             bind:selected={SETTINGS.history.general.state.showYourName}
             values={[
-              { label: "显示你的名称", value: "Show Your Name" },
-              { label: "显示你的职业", value: "Show Your Class" },
-              { label: "显示你的名称 - 职业", value: "Show Your Name - Class" },
-              { label: "显示你的名称 - 专精", value: "Show Your Name - Spec" },
-              { label: "隐藏你的名称", value: "Hide Your Name" },
+              { label: "Show Your Name", value: "Show Your Name" },
+              { label: "Show Your Class", value: "Show Your Class" },
+              { label: "Show Your Name - Class", value: "Show Your Name - Class" },
+              { label: "Show Your Name - Spec", value: "Show Your Name - Spec" },
+              { label: "Hide Your Name", value: "Hide Your Name" },
             ]}
-            label="显示你的名称"
-            description="“显示你的职业”会用职业替代你的名称；“名称 - 职业/专精”会同时显示两者。"
+            label="Display Your Name"
+            description="&quot;Show Your Class&quot; replaces your name with your class; &quot;Name - Class/Spec&quot; shows both."
           />
           <SettingsSelect
             bind:selected={SETTINGS.history.general.state.showOthersName}
             values={[
-              { label: "显示他人名称", value: "Show Others' Name" },
-              { label: "显示他人职业", value: "Show Others' Class" },
-              { label: "显示他人名称 - 职业", value: "Show Others' Name - Class" },
-              { label: "显示他人名称 - 专精", value: "Show Others' Name - Spec" },
-              { label: "隐藏他人名称", value: "Hide Others' Name" },
+              { label: "Show Others' Name", value: "Show Others' Name" },
+              { label: "Show Others' Class", value: "Show Others' Class" },
+              { label: "Show Others' Name - Class", value: "Show Others' Name - Class" },
+              { label: "Show Others' Name - Spec", value: "Show Others' Name - Spec" },
+              { label: "Hide Others' Name", value: "Hide Others' Name" },
             ]}
-            label="显示他人名称"
-            description="“显示他人职业”会用职业替代他人名称；“名称 - 职业/专精”会同时显示两者。"
+            label="Display Others' Name"
+            description="&quot;Show Others' Class&quot; replaces their name with their class; &quot;Name - Class/Spec&quot; shows both."
           />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showYourAbilityScore} label="你的能力评分" description="显示你的能力评分" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showOthersAbilityScore} label="他人能力评分" description="显示他人的能力评分" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showYourSeasonStrength} label="你的赛季强度" description="显示你的赛季强度" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showOthersSeasonStrength} label="他人赛季强度" description="显示他人的赛季强度" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopDPSPlayer} label="以最高 DPS 为基准（玩家）" description="颜色条按最高 DPS 玩家进行相对缩放，而不是按所有玩家。适用于 20 人或世界 Boss。" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopDPSSkill} label="以最高 DPS 为基准（技能）" description="颜色条按最高 DPS 技能进行相对缩放，而不是按所有技能。适用于 20 人或世界 Boss。" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopHealPlayer} label="以最高治疗为基准（玩家）" description="颜色条按最高治疗玩家进行相对缩放，而不是按所有玩家。适用于 20 人或世界 Boss。" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopHealSkill} label="以最高治疗为基准（技能）" description="颜色条按最高治疗技能进行相对缩放，而不是按所有技能。适用于 20 人或世界 Boss。" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopTankedPlayer} label="以最高承伤为基准（玩家）" description="颜色条按最高承伤玩家进行相对缩放，而不是按所有玩家。适用于 20 人或世界 Boss。" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopTankedSkill} label="以最高承伤为基准（技能）" description="颜色条按最高承伤技能进行相对缩放，而不是按所有技能。适用于 20 人或世界 Boss。" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.shortenTps} label="缩写 TPS 数值" description="将 TPS 显示为 5k、50k 等" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.shortenAbilityScore} label="缩写能力评分" description="将能力评分显示为缩写形式" />
-          <SettingsSwitch bind:checked={SETTINGS.history.general.state.shortenDps} label="缩写 DPS 数值" description="将 DPS 显示为 5k、50k 等" />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showYourAbilityScore} label="Your Ability Score" description="Show your ability score" />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showOthersAbilityScore} label="Others' Ability Score" description="Show others' ability score" />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showYourSeasonStrength} label="Your Season Strength" description="Show your season strength" />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.showOthersSeasonStrength} label="Others' Season Strength" description="Show others' season strength" />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopDPSPlayer} label="Relative to Top DPS (Player)" description="Scale colour bars relative to the top DPS player instead of all players. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopDPSSkill} label="Relative to Top DPS (Skill)" description="Scale colour bars relative to the top DPS skill instead of all skills. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopHealPlayer} label="Relative to Top Heal (Player)" description="Scale colour bars relative to the top healer instead of all players. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopHealSkill} label="Relative to Top Heal (Skill)" description="Scale colour bars relative to the top heal skill instead of all skills. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopTankedPlayer} label="Relative to Top Tanked (Player)" description="Scale colour bars relative to the top tanked player instead of all players. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.relativeToTopTankedSkill} label="Relative to Top Tanked (Skill)" description="Scale colour bars relative to the top tanked skill instead of all skills. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.shortenTps} label="Shorten TPS Values" description="Display TPS as 5k, 50k, etc." />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.shortenAbilityScore} label="Shorten Ability Score" description="Display ability score in abbreviated form" />
+          <SettingsSwitch bind:checked={SETTINGS.history.general.state.shortenDps} label="Shorten DPS Values" description="Display DPS as 5k, 50k, etc." />
         </div>
       {/if}
     </div>
 
-    <!-- DPS - Player Settings -->
-  <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
+    <!-- DPS - Player Columns -->
+    <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
       <button
         type="button"
-  class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
+        class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
         onclick={() => toggleSection('dpsPlayers')}
       >
-  <h2 class="text-base font-semibold text-foreground">DPS（玩家）列</h2>
-  <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.dpsPlayers ? 'rotate-180' : ''}" />
+        <h2 class="text-base font-semibold text-foreground">DPS (Player) Columns</h2>
+        <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.dpsPlayers ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.dpsPlayers}
         <div class="px-4 pb-3 space-y-1">
@@ -97,15 +96,15 @@
       {/if}
     </div>
 
-    <!-- DPS - Skill Breakdown Settings -->
-  <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
+    <!-- DPS - Skill Breakdown Columns -->
+    <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
       <button
         type="button"
-  class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
+        class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
         onclick={() => toggleSection('dpsSkills')}
       >
-  <h2 class="text-base font-semibold text-foreground">DPS（技能明细）列</h2>
-  <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.dpsSkills ? 'rotate-180' : ''}" />
+        <h2 class="text-base font-semibold text-foreground">DPS (Skill Breakdown) Columns</h2>
+        <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.dpsSkills ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.dpsSkills}
         <div class="px-4 pb-3 space-y-1">
@@ -116,15 +115,15 @@
       {/if}
     </div>
 
-    <!-- Heal - Player Settings -->
-  <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
+    <!-- Heal - Player Columns -->
+    <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
       <button
         type="button"
-  class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
+        class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
         onclick={() => toggleSection('healPlayers')}
       >
-  <h2 class="text-base font-semibold text-foreground">治疗（玩家）列</h2>
-  <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.healPlayers ? 'rotate-180' : ''}" />
+        <h2 class="text-base font-semibold text-foreground">Heal (Player) Columns</h2>
+        <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.healPlayers ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.healPlayers}
         <div class="px-4 pb-3 space-y-1">
@@ -135,15 +134,15 @@
       {/if}
     </div>
 
-    <!-- Heal - Skill Breakdown Settings -->
-  <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
+    <!-- Heal - Skill Breakdown Columns -->
+    <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
       <button
         type="button"
-  class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
+        class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
         onclick={() => toggleSection('healSkills')}
       >
-  <h2 class="text-base font-semibold text-foreground">治疗（技能明细）列</h2>
-  <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.healSkills ? 'rotate-180' : ''}" />
+        <h2 class="text-base font-semibold text-foreground">Heal (Skill Breakdown) Columns</h2>
+        <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.healSkills ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.healSkills}
         <div class="px-4 pb-3 space-y-1">
@@ -154,15 +153,15 @@
       {/if}
     </div>
 
-    <!-- Tanked - Player Settings -->
-  <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
+    <!-- Tanked - Player Columns -->
+    <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
       <button
         type="button"
-  class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
+        class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
         onclick={() => toggleSection('tankedPlayers')}
       >
-  <h2 class="text-base font-semibold text-foreground">承伤（玩家）列</h2>
-  <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.tankedPlayers ? 'rotate-180' : ''}" />
+        <h2 class="text-base font-semibold text-foreground">Tanked (Player) Columns</h2>
+        <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.tankedPlayers ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.tankedPlayers}
         <div class="px-4 pb-3 space-y-1">
@@ -173,15 +172,15 @@
       {/if}
     </div>
 
-    <!-- Tanked - Skill Breakdown Settings -->
-  <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
+    <!-- Tanked - Skill Breakdown Columns -->
+    <div class="bg-popover/40 rounded-lg border border-border/50 overflow-hidden">
       <button
         type="button"
-  class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
+        class="w-full flex items-center justify-between px-4 py-3 hover:bg-popover/50 transition-colors"
         onclick={() => toggleSection('tankedSkills')}
       >
-  <h2 class="text-base font-semibold text-foreground">承伤（技能明细）列</h2>
-  <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.tankedSkills ? 'rotate-180' : ''}" />
+        <h2 class="text-base font-semibold text-foreground">Tanked (Skill Breakdown) Columns</h2>
+        <ChevronDown class="w-5 h-5 text-muted-foreground transition-transform duration-200 {expandedSections.tankedSkills ? 'rotate-180' : ''}" />
       </button>
       {#if expandedSections.tankedSkills}
         <div class="px-4 pb-3 space-y-1">
