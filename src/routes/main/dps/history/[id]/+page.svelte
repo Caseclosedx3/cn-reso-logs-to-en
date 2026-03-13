@@ -24,7 +24,7 @@
     type RecountGroup,
     type SkillDisplayRow,
   } from "$lib/config/recount-table";
-  import { formatClassSpecLabel } from "$lib/class-labels";
+  import { formatClassSpecLabel, toBossName } from "$lib/class-labels";
 
   type HistorySkillType = "dps" | "heal" | "tanked";
 
@@ -673,7 +673,7 @@
                         class={b.isDefeated
                           ? "text-destructive line-through"
                           : "text-primary"}
-                        >{b.monsterName}{i < encounter.bosses.length - 1 ? "," : ""}</span
+                        >{toBossName(b.monsterName)}{i < encounter.bosses.length - 1 ? "," : ""}</span
                       >
                     {/each}
                   </div>
