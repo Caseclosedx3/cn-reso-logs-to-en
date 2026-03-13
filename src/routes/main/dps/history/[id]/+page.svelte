@@ -16,7 +16,7 @@
     historyTankedSkillColumns,
   } from "$lib/column-data";
   import { settings, SETTINGS, DEFAULT_HISTORY_STATS } from "$lib/settings-store";
-  import getDisplayName from "$lib/name-display";
+  import getDisplayName, { stripCNSuffix } from "$lib/name-display";
   import { openUrl } from "@tauri-apps/plugin-opener";
   import { computePlayerRowsFromEntities } from "$lib/live-derived";
   import {
@@ -227,7 +227,9 @@
     const mapping = new Map<number, string>();
     for (const entity of rawEntities) {
       if (entity.name && entity.name.trim().length > 0) {
-        mapping.set(entity.uid, entity.name);
+        // Strip any CN spec suffix (e.g. "Kuumi - 冰矛" → "Kuumi") so heal
+        // target names are displayed cleanly in the Heal Target Distribution.
+        mapping.set(entity.uid, stripCNSuffix(entity.name));
       }
     }
     return mapping;
