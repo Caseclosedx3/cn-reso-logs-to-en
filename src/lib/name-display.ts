@@ -53,6 +53,23 @@ export function normalizeNameDisplaySetting(
 }
 
 /**
+ * Strips any CN spec suffix baked into the raw player name by the game server.
+ * The game sends names like "Kuumi - 冰矛" where the suffix contains CJK
+ * characters. This strips everything from the last " - " onward if the
+ * trailing part contains CJK characters, returning just "Kuumi".
+ */
+function stripCNSuffix(name: string): string {
+  const separatorIdx = name.lastIndexOf(" - ");
+  if (separatorIdx === -1) return name;
+  const suffix = name.slice(separatorIdx + 3);
+  // If the suffix contains any CJK character, it came from the game packet
+  if (/[\u4e00-\u9fff]/.test(suffix)) {
+    return name.slice(0, separatorIdx);
+  }
+  return name;
+}
+
+/**
  * Parameters for the name display transformation function
  */
 export interface NameDisplayParams {
@@ -75,12 +92,12 @@ export interface NameDisplayParams {
  * @example
  * ```typescript
  * const displayName = getDisplayName({
- *   player: { uid: 123, name: "PlayerName", className: "Frost Mage" },
- *   showYourNameSetting: "Show Your Class",
+ *   player: { uid: 123, name: "PlayerName - 冰矛", className: "Ice Mage", classSpecName: "冰矛" },
+ *   showYourNameSetting: "Show Your Name - Spec",
  *   showOthersNameSetting: "Show Others' Name",
  *   isLocalPlayer: true
  * });
- * // Returns "Frost Mage"
+ * // Returns "PlayerName - Icicle Spear"
  * ```
  */
 export default function getDisplayName(params: NameDisplayParams): string {
@@ -90,8 +107,9 @@ export default function getDisplayName(params: NameDisplayParams): string {
   const settingRaw = isLocalPlayer ? showYourNameSetting : showOthersNameSetting;
   const setting = normalizeNameDisplaySetting(settingRaw);
 
-  // Get the base name to use
-  const baseName = player.name || player.uid.toString();
+  // Strip any CN spec suffix baked into the raw name by the game server
+  // e.g. "Kuumi - 冰矛" → "Kuumi"
+  const baseName = stripCNSuffix(player.name || player.uid.toString());
 
   // Apply the appropriate setting
   switch (setting) {
