@@ -867,7 +867,7 @@
                           {#if p.seasonStrength > 0 && (p.isLocalPlayer
                             ? SETTINGS.history.general.state.showYourSeasonStrength
                             : SETTINGS.history.general.state.showOthersSeasonStrength)}
-                            <span>({p.seasonStrength})</span>
+                            <span>&nbsp;({p.seasonStrength})</span>
                           {/if}
                         </span>
                       {/if}

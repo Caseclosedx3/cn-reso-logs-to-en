@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 /**
- * Sync skill names in Resonance Logs from ZDPS (reference).
- * Reads ZDPS SkillTable.json + SkillOverrides.en.json, builds skillId -> Name,
- * then updates class_skill_configs.json and optionally RecountTable.json.
+ * Fix all skill names in Resonance Logs to match ZDPS (reference only, no file copy).
+ * - Builds effectId → skillId from ZDPS SkillFightLevelTable
+ * - Builds skillId → Name from ZDPS SkillTable + SkillOverrides
+ * - Updates RecountTable.json RecountName for every entry that can be resolved
+ * - Updates class_skill_configs.json name/derivedName for all skills
+ *
+ * ZDPS path: set ZDPS_DATA env, or script assumes sibling repo at ../BPSR-ZDPS/BPSR-ZDPS/Data
  */
 
 import fs from 'fs';
@@ -11,34 +15,107 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-// BPSR-ZDPS Data lives next to cn-reso-logs-to-en under "Resonance Logs project"
-const ZDPS_DATA = path.resolve(ROOT, '../BPSR-ZDPS/BPSR-ZDPS/Data');
+const ZDPS_DATA =
+  process.env.ZDPS_DATA ||
+  path.resolve(ROOT, '../BPSR-ZDPS/BPSR-ZDPS/Data');
 
 function loadJson(p) {
   return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
-function buildZdpsSkillNameMap() {
-  const skillTable = loadJson(path.join(ZDPS_DATA, 'SkillTable.json'));
-  const overrides = loadJson(path.join(ZDPS_DATA, 'SkillOverrides.en.json'));
+function damageIdToEffectId(damageId) {
+  if (damageId < 1000000) return damageId;
+  return Math.floor((damageId % 100000000) / 100);
+}
+
+function buildEffectToSkill(zdpsData) {
+  const table = loadJson(path.join(zdpsData, 'SkillFightLevelTable.json'));
   const map = new Map();
-  for (const [id, entry] of Object.entries(skillTable)) {
-    if (entry.Name) map.set(parseInt(id, 10), entry.Name);
-  }
-  for (const [id, entry] of Object.entries(overrides)) {
-    if (entry.Name) map.set(parseInt(id, 10), entry.Name);
+  for (const [id, entry] of Object.entries(table)) {
+    if (entry.SkillId != null) map.set(parseInt(id, 10), entry.SkillId);
   }
   return map;
 }
 
-function updateClassSkillConfigs(nameMap) {
+function buildSkillNameMap(zdpsData) {
+  const skillTable = loadJson(path.join(zdpsData, 'SkillTable.json'));
+  const overrides = loadJson(path.join(zdpsData, 'SkillOverrides.en.json'));
+  const map = new Map();
+
+  for (const [id, entry] of Object.entries(skillTable)) {
+    const name = entry.Name && entry.Name !== '场地标记01' ? entry.Name : entry.NameDesign;
+    if (name) map.set(parseInt(id, 10), name);
+  }
+
+  for (const [id, entry] of Object.entries(overrides)) {
+    if (entry.Name) map.set(parseInt(id, 10), entry.Name);
+  }
+
+  // SkillLevelGroup fallback: if a skill still has a CJK name, try using
+  // the base skill name from its SkillLevelGroup (stripping "- Stage N" suffixes).
+  for (const [id, entry] of Object.entries(skillTable)) {
+    const numId = parseInt(id, 10);
+    const current = map.get(numId);
+    if (!current || !hasCJK(current)) continue;
+
+    const slg = overrides[id]?.SkillLevelGroup ?? entry.SkillLevelGroup;
+    if (!slg || slg === numId) continue;
+
+    const baseName = map.get(slg);
+    if (baseName && !hasCJK(baseName)) {
+      map.set(numId, baseName.replace(/\s*-\s*Stage\s+\d+$/i, ''));
+    }
+  }
+
+  return map;
+}
+
+function hasCJK(str) {
+  return /[\u4e00-\u9fff\u3400-\u4dbf]/.test(str);
+}
+
+function updateRecountTable(effectToSkill, skillNames) {
+  const recountPath = path.join(ROOT, 'src/lib/config/RecountTable.json');
+  const recount = loadJson(recountPath);
+  let updated = 0;
+  const otherId = 294;
+
+  for (const entry of Object.values(recount)) {
+    if (entry.Id === otherId || !entry.DamageId?.length) continue;
+    const names = [];
+    for (const did of entry.DamageId) {
+      const effectId = damageIdToEffectId(did);
+
+      // Try effectId directly first (SkillTable/Overrides often have
+      // fight-level entries with more specific English names)
+      const effectName = skillNames.get(effectId);
+      if (effectName && !hasCJK(effectName)) { names.push(effectName); continue; }
+
+      // Fall back to resolved skillId
+      const skillId = effectToSkill.get(effectId);
+      const name = skillId != null ? skillNames.get(skillId) : null;
+      if (name && !hasCJK(name)) names.push(name);
+    }
+    if (names.length > 0) {
+      const name = names[0];
+      if (entry.RecountName !== name) {
+        entry.RecountName = name;
+        updated++;
+      }
+    }
+  }
+  fs.writeFileSync(recountPath, JSON.stringify(recount, null, 2) + '\n', 'utf8');
+  console.log('RecountTable.json: updated', updated, 'RecountNames from ZDPS');
+}
+
+function updateClassSkillConfigs(skillNames) {
   const configPath = path.join(ROOT, 'src/lib/config/class_skill_configs.json');
   const config = loadJson(configPath);
   let updated = 0;
   for (const classEntry of Object.values(config)) {
     if (classEntry.skills) {
       for (const skill of classEntry.skills) {
-        const name = nameMap.get(skill.skillId);
+        const name = skillNames.get(skill.skillId);
         if (name && skill.name !== name) {
           skill.name = name;
           updated++;
@@ -47,7 +124,7 @@ function updateClassSkillConfigs(nameMap) {
     }
     if (classEntry.derivations) {
       for (const d of classEntry.derivations) {
-        const name = nameMap.get(d.derivedSkillId);
+        const name = skillNames.get(d.derivedSkillId);
         if (name && d.derivedName !== name) {
           d.derivedName = name;
           updated++;
@@ -59,108 +136,15 @@ function updateClassSkillConfigs(nameMap) {
   console.log('class_skill_configs.json: updated', updated, 'names');
 }
 
-// Known RecountTable display name corrections (wrong translation -> ZDPS correct name)
-const RECOUNT_NAME_FIXES = {
-  'Frost Spear': 'Frost Lance',
-  'Iaijutsu Slash': 'Iaido Slash',
-  'Pursuit Break': 'Breach Pursuit',
-  'Flying Bird Throw': 'Falcon Toss (Leap)',
-  'Instant': 'Instant Edge',
-  'Courage Wind Ring': 'Aegis Gale',
-  'Dragon Cannon': 'Drake Cannon',
-  'Shadow Spiral': 'Vortex Strike',
-  'Rain Tides Rising': 'Raincall Surge',
-  'Extreme Cold: Ice and Snow Hymn': 'Glacier Hymn',
-  'Clear Stream Pearl Spiral': 'Tidepool',
-  'Freezing Cold Wind': 'Frozen Gale',
-  'Ice Infusion': 'Permafrost',
-  'Wave Convergence': 'Maelstrom',
-  'Ice Shelter': 'Frost Shelter',
-  'Ice Crystal Fall': 'Meteor Storm',
-  'Piercing Ice Spear': 'Frostbeam',
-  'Thunder Chain Slash': 'Stormflash',
-  'Thousand Thunders Flash Shadow Intent': 'Ultimate Slash',
-  'Divine Shadow Slash': 'Phantom Slash',
-  'Divine Punishment Scythe': 'Chaos Breaker',
-  'Thunder Scythe': 'Storm Scythe (Thundercleave)',
-  'Thunder Rising Dragon Slash': 'Dracoflash',
-  'Chaotic Helmet Slash': 'Thundercleave',
-  'Blade of Ceasefire': 'Blade of Justice',
-  'Shield Smash': 'Valor Bash',
-  'Star Shattering Charge': 'Shield Toss',
-  'Sandy Cloak': 'Sandshroud',
-  'Boulder Body': 'Stoneform',
-  'Sandstone Grip': 'Sandgrip',
-  'Rock Fury Strike': 'Rageblow',
-  'Fury Burst': 'Countercrush',
-  'Brave Bulwark': 'Brave Bastion',
-  'Sandstone Guardian': 'Sandgrip',
-  'Star Fragment Shatter': 'Shield Combo',
-  'Sword of Justice': 'Blade of Justice',
-  'Heroic Shield Bash': 'Valor Bash',
-  'Majesty: Holy Light Infusion': 'Divine Circle',
-  'Blazing Judgment': 'Scorching Judgment',
-  'Auto Judgment': 'Judgment',
-  'Holy Sword': 'Sacred Blade',
-  'Light Resolve': 'Holy Barrier',
-  'Holy Light Guard': 'Aegis Ward',
-  'Ruthless Crusade': 'Zeal Crusade',
-  'Condemnation': 'Reckoning',
-  'Enhanced Condemnation': 'Inferno Reckoning',
-  'Blazing Reckoning': 'Inferno Reckoning',
-  'Light Impact': 'Radiant Impact',
-  'Radiant Core': 'Radiance',
-  'Vine Control': "Vines' Embrace",
-  'Flourish: Barrier of Hope': 'Divine Circle Bloom',
-  'Flower Restore': 'Bloomheal',
-  'Wild Seed': 'Regen Bud: Wild Seed',
-  'Nurture': 'Nourish',
-  'Regeneration Pulse': 'Regen Pulse',
-  'Forest Voice G10: Forest Prayer': 'Grove Wish',
-  "Nature's Shelter": 'Nature Shield',
-  'Bloom Charge': 'Overgrowth',
-  'Accelerated Growth': 'Life Bloom',
-  'Deer Dash': 'Stag Charge',
-  'Symbiosis Mark': 'Infusion',
-  'Nourishing Seed': 'Nourish',
-  'String Strike': 'Resonant Strings',
-  'Amplify Beat': 'Amplified Beat',
-  'Convergence Symphony': 'Resonant Strings',
-  'Flame Fantasy': 'Rhapsody of Flame',
-  'Fire Rhythm Stomp': 'Stomp',
-  'Flame Note': 'Heroic Melody',
-  'Fierce Swing': 'Fierce Strike',
-  'Surge Quintet': 'Fivefold Crescendo',
-  'Passionate Swing': 'Passion Burst',
-  'Fervent: Passionate Swing': 'Passion Fury',
-  'Center of Attention': 'Center Stage',
-  'Every Shot Counts': 'Bullseye',
-  'Light Intent: Quadruple Arrow': 'Photon Reforge - Quadraflare',
-  'Sharp Eye: Light Giant Arrow': 'Luminary Bolt (Gravity Orb)',
-  'Light Energy Explosion': 'Radiance Barrage',
-  'Raging Tide Shot': 'Torrent Volley',
-  'Concentrated Shot': 'Deter Shot',
-  'Light Energy Bombardment': 'Blast Shot',
-  'Explosive Shot': 'Blast Shot',
-  'Deterrent Shot': 'Deter Shot',
-};
-
-function updateRecountTable() {
-  const recountPath = path.join(ROOT, 'src/lib/config/RecountTable.json');
-  const recount = loadJson(recountPath);
-  let updated = 0;
-  for (const entry of Object.values(recount)) {
-    const fix = RECOUNT_NAME_FIXES[entry.RecountName];
-    if (fix) {
-      entry.RecountName = fix;
-      updated++;
-    }
-  }
-  fs.writeFileSync(recountPath, JSON.stringify(recount, null, 2) + '\n', 'utf8');
-  console.log('RecountTable.json: updated', updated, 'names');
+if (!fs.existsSync(ZDPS_DATA)) {
+  console.error('ZDPS Data not found at', ZDPS_DATA);
+  console.error('Set ZDPS_DATA env to the BPSR-ZDPS/Data path, or ensure ZDPS repo is at ../BPSR-ZDPS');
+  process.exit(1);
 }
 
-const nameMap = buildZdpsSkillNameMap();
-console.log('ZDPS skill name map size:', nameMap.size);
-updateClassSkillConfigs(nameMap);
-updateRecountTable();
+const effectToSkill = buildEffectToSkill(ZDPS_DATA);
+const skillNames = buildSkillNameMap(ZDPS_DATA);
+console.log('ZDPS: effectToSkill size', effectToSkill.size, ', skill names size', skillNames.size);
+
+updateRecountTable(effectToSkill, skillNames);
+updateClassSkillConfigs(skillNames);

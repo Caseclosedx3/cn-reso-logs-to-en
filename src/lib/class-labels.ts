@@ -71,6 +71,19 @@ const CN_BOSS_TO_EN: Record<string, string> = {
   "星界守护者": "Astral Guardian",
   "命运织者": "Fate Weaver",
   "永恒之王": "Eternal King",
+  // ── Guild Hunt / Roguelike / common targets (from your screenshots) ──
+  "巴西利斯克": "Basilisk",
+  "赤玉地狐": "Crimson Jade Earth Fox",
+  "幽冥角羊": "Nether Horned Sheep",
+  "流光角羊": "Flowing Light Horned Sheep",
+  "翡翠角羊": "Jade Horned Sheep",
+};
+
+// CN name prefixes used in MonsterName.json (e.g. "首领·赤玉地狐")
+const CN_PREFIX_TO_EN: Record<string, string> = {
+  "首领·": "Boss - ",
+  "精英·": "Elite - ",
+  "幻象·": "Phantom - ",
 };
 
 function hasCJK(str: string): boolean {
@@ -80,12 +93,23 @@ function hasCJK(str: string): boolean {
 /**
  * Translate a boss/monster name from CN to EN.
  * If the name is already English (no CJK), returns it unchanged.
+ * Handles prefixed names like "首领·赤玉地狐" → "Boss - Crimson Jade Earth Fox".
  * Falls back to the original name if no mapping exists.
  */
 export function toBossName(monsterName: string): string {
   if (!monsterName) return monsterName;
   if (!hasCJK(monsterName)) return monsterName;
-  return CN_BOSS_TO_EN[monsterName] ?? monsterName;
+  const direct = CN_BOSS_TO_EN[monsterName];
+  if (direct) return direct;
+  for (const [cnPrefix, enPrefix] of Object.entries(CN_PREFIX_TO_EN)) {
+    if (monsterName.startsWith(cnPrefix)) {
+      const base = monsterName.slice(cnPrefix.length);
+      const baseEn = CN_BOSS_TO_EN[base];
+      if (baseEn) return enPrefix + baseEn;
+      return enPrefix + base; // unknown base, still show prefix in EN
+    }
+  }
+  return monsterName;
 }
 
 export function toClassLabel(className: string): string {

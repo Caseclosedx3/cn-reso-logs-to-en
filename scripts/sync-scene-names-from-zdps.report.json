@@ -1,0 +1,1584 @@
+{
+  "changedCount": 295,
+  "unchangedCount": 189,
+  "missingInSourceCount": 98,
+  "blankInSourceCount": 0,
+  "changed": [
+    {
+      "id": "11",
+      "from": "Wandering Star Isle",
+      "to": "Starland"
+    },
+    {
+      "id": "71",
+      "from": "Forest of Blooming Light",
+      "to": "Duskdye Woods"
+    },
+    {
+      "id": "72",
+      "from": "Forest of Drowning Light",
+      "to": "Everfall Forest"
+    },
+    {
+      "id": "73",
+      "from": "Howling Wind Canyon",
+      "to": "Windhowl Canyon"
+    },
+    {
+      "id": "75",
+      "from": "Deep Dark Blue Cavern",
+      "to": "Skimmer's Lair"
+    },
+    {
+      "id": "76",
+      "from": "Land of Drifting Dream Flowers",
+      "to": "Land of Crimson Illusion"
+    },
+    {
+      "id": "93",
+      "from": "Moonlit Fields",
+      "to": "Moonshadow Wilds"
+    },
+    {
+      "id": "94",
+      "from": "Starlit Maze Path",
+      "to": "Stray Starway"
+    },
+    {
+      "id": "5002",
+      "from": "Primordial Sea",
+      "to": "Sea of Origin"
+    },
+    {
+      "id": "5033",
+      "from": "Towering Ruin",
+      "to": "Tower Ruins"
+    },
+    {
+      "id": "5206",
+      "from": "Astris",
+      "to": "Asterleeds"
+    },
+    {
+      "id": "5220",
+      "from": "Ocean Yacht",
+      "to": "Sea Cruise"
+    },
+    {
+      "id": "5602",
+      "from": "Fafara's Home",
+      "to": "Fafala's Home"
+    },
+    {
+      "id": "5603",
+      "from": "",
+      "to": "Fafala's Home"
+    },
+    {
+      "id": "5811",
+      "from": "Furnace Pipeline",
+      "to": "Smelting Furnace Pipes"
+    },
+    {
+      "id": "6211",
+      "from": "Unstable - Echoing Dungeon",
+      "to": "Unstable - Depths of Decay"
+    },
+    {
+      "id": "6212",
+      "from": "Unstable - Echoing Dungeon",
+      "to": "Unstable - Depths of Decay"
+    },
+    {
+      "id": "6221",
+      "from": "Chaotic - Echoing Dungeon",
+      "to": "Chaotic - Depths of Decay"
+    },
+    {
+      "id": "6222",
+      "from": "Chaotic - Echoing Dungeon",
+      "to": "Chaotic - Depths of Decay"
+    },
+    {
+      "id": "6223",
+      "from": "Chaotic - Echoing Dungeon",
+      "to": "Chaotic - Depths of Decay"
+    },
+    {
+      "id": "7003",
+      "from": "Ruined City Obstacle Race",
+      "to": "Wasteland Race"
+    },
+    {
+      "id": "7004",
+      "from": "Ring City Vehicle Race",
+      "to": "City Rally"
+    },
+    {
+      "id": "7050",
+      "from": "Goblin Stampede",
+      "to": "Goblin Rampage"
+    },
+    {
+      "id": "7051",
+      "from": "Goblin Stampede",
+      "to": "Goblin Rampage"
+    },
+    {
+      "id": "7052",
+      "from": "Goblin Stampede",
+      "to": "Goblin Rampage"
+    },
+    {
+      "id": "7053",
+      "from": "Goblin Stampede",
+      "to": "Goblin Rampage"
+    },
+    {
+      "id": "7054",
+      "from": "Goblin Stampede",
+      "to": "Goblin Rampage"
+    },
+    {
+      "id": "7065",
+      "from": "Emergency Delivery",
+      "to": "Urgent Delivery"
+    },
+    {
+      "id": "7070",
+      "from": "Investigate Light Bridge Platform",
+      "to": "Light Bridge"
+    },
+    {
+      "id": "7071",
+      "from": "Investigate Light Bridge Platform",
+      "to": "Light Bridge"
+    },
+    {
+      "id": "7072",
+      "from": "Investigate Light Bridge Platform",
+      "to": "Light Bridge"
+    },
+    {
+      "id": "7073",
+      "from": "Investigate Light Bridge Platform",
+      "to": "Light Bridge"
+    },
+    {
+      "id": "7075",
+      "from": "Beastkin Quiz",
+      "to": "Demi-Human Q&A"
+    },
+    {
+      "id": "7076",
+      "from": "Beastkin Quiz",
+      "to": "Demi-Human Q&A"
+    },
+    {
+      "id": "7077",
+      "from": "Beastkin Quiz",
+      "to": "Demi-Human Q&A"
+    },
+    {
+      "id": "7150",
+      "from": "World Dominator - Fire Dragon",
+      "to": "World Dominator"
+    },
+    {
+      "id": "7151",
+      "from": "World Dominator - Fire Dragon",
+      "to": "World Dominator"
+    },
+    {
+      "id": "8001",
+      "from": "Village Defense",
+      "to": "Village Defense Battle"
+    },
+    {
+      "id": "8002",
+      "from": "Steel Fist Mech Battle",
+      "to": "Golem Arena"
+    },
+    {
+      "id": "8005",
+      "from": "Emergency Delivery",
+      "to": "Urgent Delivery"
+    },
+    {
+      "id": "8006",
+      "from": "Emergency Delivery",
+      "to": "Urgent Delivery"
+    },
+    {
+      "id": "8020",
+      "from": "Dispute Arbitration",
+      "to": "Demi-Human Duel"
+    },
+    {
+      "id": "8021",
+      "from": "Dispute Arbitration",
+      "to": "Demi-Human Duel"
+    },
+    {
+      "id": "9002",
+      "from": "",
+      "to": "Defeat the Year Demon"
+    },
+    {
+      "id": "9201",
+      "from": "Loom of Dreams",
+      "to": "Loom of Dreams​"
+    },
+    {
+      "id": "9202",
+      "from": "Roguelike Dungeon Difficulty 1",
+      "to": "Slumberdream Valley"
+    },
+    {
+      "id": "9203",
+      "from": "Roguelike Dungeon Difficulty 2",
+      "to": "Slumberdream Valley"
+    },
+    {
+      "id": "9204",
+      "from": "Roguelike Dungeon Difficulty 3",
+      "to": "Slumberdream Valley"
+    },
+    {
+      "id": "12050",
+      "from": "World Dominator - Robot",
+      "to": "Giant Golem Crusade"
+    },
+    {
+      "id": "12051",
+      "from": "World Dominator - Robot",
+      "to": "Giant Golem Crusade"
+    },
+    {
+      "id": "12100",
+      "from": "",
+      "to": "Echoing Dungeon"
+    },
+    {
+      "id": "13001",
+      "from": "Clash! Dragon Shackles",
+      "to": "Clash! Floating Island - Dragon Shackles"
+    },
+    {
+      "id": "13002",
+      "from": "Brutal! Dragon Shackles",
+      "to": "Brutal! Floating Island - Dragon Shackles"
+    },
+    {
+      "id": "13003",
+      "from": "Purge! Dragon Shackles",
+      "to": "Purge! Floating Island - Dragon Shackles"
+    },
+    {
+      "id": "20101",
+      "from": "Path of Guardian 1",
+      "to": "Guardian 1"
+    },
+    {
+      "id": "20102",
+      "from": "Path of Guardian 10",
+      "to": "Guardian 10"
+    },
+    {
+      "id": "20201",
+      "from": "Path of Guardian 2",
+      "to": "Guardian 2"
+    },
+    {
+      "id": "20202",
+      "from": "Path of Guardian 22",
+      "to": "Guardian 22"
+    },
+    {
+      "id": "20301",
+      "from": "Path of Guardian 4",
+      "to": "Guardian 4"
+    },
+    {
+      "id": "20302",
+      "from": "Path of Guardian 13",
+      "to": "Guardian 13"
+    },
+    {
+      "id": "20303",
+      "from": "Path of Guardian 25",
+      "to": "Guardian 25"
+    },
+    {
+      "id": "20401",
+      "from": "Path of Guardian 5",
+      "to": "Guardian 5"
+    },
+    {
+      "id": "20402",
+      "from": "Path of Guardian 16",
+      "to": "Guardian 16"
+    },
+    {
+      "id": "20501",
+      "from": "Path of Guardian 7",
+      "to": "Guardian 7"
+    },
+    {
+      "id": "20502",
+      "from": "Path of Guardian 19",
+      "to": "Guardian 19"
+    },
+    {
+      "id": "20701",
+      "from": "Path of Guardian 14",
+      "to": "Guardian 14"
+    },
+    {
+      "id": "20702",
+      "from": "Path of Guardian 20",
+      "to": "Guardian 20"
+    },
+    {
+      "id": "20801",
+      "from": "Path of Guardian 8",
+      "to": "Guardian 8"
+    },
+    {
+      "id": "20802",
+      "from": "Path of Guardian 17",
+      "to": "Guardian 17"
+    },
+    {
+      "id": "20803",
+      "from": "Path of Guardian 26",
+      "to": "Guardian 26"
+    },
+    {
+      "id": "21201",
+      "from": "Path of Guardian 23",
+      "to": "Guardian 23"
+    },
+    {
+      "id": "21202",
+      "from": "Path of Guardian 29",
+      "to": "Guardian 29"
+    },
+    {
+      "id": "21301",
+      "from": "Path of Guardian 6",
+      "to": "Guardian 6"
+    },
+    {
+      "id": "21302",
+      "from": "Path of Guardian 12",
+      "to": "Guardian 12"
+    },
+    {
+      "id": "21303",
+      "from": "Path of Guardian 18",
+      "to": "Guardian 18"
+    },
+    {
+      "id": "21304",
+      "from": "Path of Guardian 24",
+      "to": "Guardian 24"
+    },
+    {
+      "id": "21305",
+      "from": "Path of Guardian 30",
+      "to": "Guardian 30"
+    },
+    {
+      "id": "21306",
+      "from": "Path of Guardian 3",
+      "to": "Guardian 3"
+    },
+    {
+      "id": "21307",
+      "from": "Path of Guardian 9",
+      "to": "Guardian 9"
+    },
+    {
+      "id": "21308",
+      "from": "Path of Guardian 15",
+      "to": "Guardian 15"
+    },
+    {
+      "id": "21309",
+      "from": "Path of Guardian 21",
+      "to": "Guardian 21"
+    },
+    {
+      "id": "21310",
+      "from": "Path of Guardian 27",
+      "to": "Guardian 27"
+    },
+    {
+      "id": "21401",
+      "from": "Path of Guardian 11",
+      "to": "Guardian 11"
+    },
+    {
+      "id": "21402",
+      "from": "Path of Guardian 28",
+      "to": "Guardian 28"
+    },
+    {
+      "id": "22101",
+      "from": "Path of Strength 17",
+      "to": "Attack 17"
+    },
+    {
+      "id": "22201",
+      "from": "Path of Strength 10",
+      "to": "Attack 10"
+    },
+    {
+      "id": "22202",
+      "from": "Path of Strength 23",
+      "to": "Attack 23"
+    },
+    {
+      "id": "22301",
+      "from": "Path of Strength 11",
+      "to": "Attack 11"
+    },
+    {
+      "id": "22401",
+      "from": "Path of Strength 13",
+      "to": "Attack 13"
+    },
+    {
+      "id": "22402",
+      "from": "Path of Strength 19",
+      "to": "Attack 19"
+    },
+    {
+      "id": "22501",
+      "from": "Path of Strength 6",
+      "to": "Attack 6"
+    },
+    {
+      "id": "22502",
+      "from": "Path of Strength 12",
+      "to": "Attack 12"
+    },
+    {
+      "id": "22503",
+      "from": "Path of Strength 18",
+      "to": "Attack 18"
+    },
+    {
+      "id": "22504",
+      "from": "Path of Strength 24",
+      "to": "Attack 24"
+    },
+    {
+      "id": "22505",
+      "from": "Path of Strength 30",
+      "to": "Attack 30"
+    },
+    {
+      "id": "22601",
+      "from": "Path of Strength 7",
+      "to": "Attack 7"
+    },
+    {
+      "id": "22602",
+      "from": "Path of Strength 14",
+      "to": "Attack 14"
+    },
+    {
+      "id": "22701",
+      "from": "Path of Strength 8",
+      "to": "Attack 8"
+    },
+    {
+      "id": "22702",
+      "from": "Path of Strength 26",
+      "to": "Attack 26"
+    },
+    {
+      "id": "23101",
+      "from": "Path of Strength 3",
+      "to": "Attack 3"
+    },
+    {
+      "id": "23102",
+      "from": "Path of Strength 9",
+      "to": "Attack 9"
+    },
+    {
+      "id": "23103",
+      "from": "Path of Strength 15",
+      "to": "Attack 15"
+    },
+    {
+      "id": "23104",
+      "from": "Path of Strength 21",
+      "to": "Attack 21"
+    },
+    {
+      "id": "23105",
+      "from": "Path of Strength 27",
+      "to": "Attack 27"
+    },
+    {
+      "id": "23201",
+      "from": "Path of Strength 4",
+      "to": "Attack 4"
+    },
+    {
+      "id": "23301",
+      "from": "Path of Strength 1",
+      "to": "Attack 1"
+    },
+    {
+      "id": "23302",
+      "from": "Path of Strength 20",
+      "to": "Attack 20"
+    },
+    {
+      "id": "23401",
+      "from": "Path of Strength 2",
+      "to": "Attack 2"
+    },
+    {
+      "id": "23501",
+      "from": "Path of Strength 5",
+      "to": "Attack 5"
+    },
+    {
+      "id": "23502",
+      "from": "Path of Strength 25",
+      "to": "Attack 25"
+    },
+    {
+      "id": "23601",
+      "from": "Path of Strength 16",
+      "to": "Attack 16"
+    },
+    {
+      "id": "23602",
+      "from": "Path of Strength 28",
+      "to": "Attack 28"
+    },
+    {
+      "id": "23701",
+      "from": "Path of Strength 22",
+      "to": "Attack 22"
+    },
+    {
+      "id": "23702",
+      "from": "Path of Strength 29",
+      "to": "Attack 29"
+    },
+    {
+      "id": "24101",
+      "from": "Path of Support 3",
+      "to": "Support 3"
+    },
+    {
+      "id": "24102",
+      "from": "Path of Support 6",
+      "to": "Support 6"
+    },
+    {
+      "id": "24103",
+      "from": "Path of Support 9",
+      "to": "Support 9"
+    },
+    {
+      "id": "24104",
+      "from": "Path of Support 12",
+      "to": "Support 12"
+    },
+    {
+      "id": "24105",
+      "from": "Path of Support 15",
+      "to": "Support 15"
+    },
+    {
+      "id": "24106",
+      "from": "Path of Support 18",
+      "to": "Support 18"
+    },
+    {
+      "id": "24107",
+      "from": "Path of Support 21",
+      "to": "Support 21"
+    },
+    {
+      "id": "24108",
+      "from": "Path of Support 24",
+      "to": "Support 24"
+    },
+    {
+      "id": "24109",
+      "from": "Path of Support 27",
+      "to": "Support 27"
+    },
+    {
+      "id": "24110",
+      "from": "Path of Support 30",
+      "to": "Support 30"
+    },
+    {
+      "id": "24201",
+      "from": "Path of Support 2",
+      "to": "Support 2"
+    },
+    {
+      "id": "24202",
+      "from": "Path of Support 10",
+      "to": "Support 10"
+    },
+    {
+      "id": "24203",
+      "from": "Path of Support 17",
+      "to": "Support 17"
+    },
+    {
+      "id": "24204",
+      "from": "Path of Support 25",
+      "to": "Support 25"
+    },
+    {
+      "id": "24301",
+      "from": "Path of Support 5",
+      "to": "Support 5"
+    },
+    {
+      "id": "24302",
+      "from": "Path of Support 14",
+      "to": "Support 14"
+    },
+    {
+      "id": "24303",
+      "from": "Path of Support 20",
+      "to": "Support 20"
+    },
+    {
+      "id": "24304",
+      "from": "Path of Support 29",
+      "to": "Support 29"
+    },
+    {
+      "id": "24401",
+      "from": "Path of Support 4",
+      "to": "Support 4"
+    },
+    {
+      "id": "24402",
+      "from": "Path of Support 11",
+      "to": "Support 11"
+    },
+    {
+      "id": "24403",
+      "from": "Path of Support 19",
+      "to": "Support 19"
+    },
+    {
+      "id": "24404",
+      "from": "Path of Support 23",
+      "to": "Support 23"
+    },
+    {
+      "id": "24501",
+      "from": "Path of Support 7",
+      "to": "Support 7"
+    },
+    {
+      "id": "24502",
+      "from": "Path of Support 16",
+      "to": "Support 16"
+    },
+    {
+      "id": "24503",
+      "from": "Path of Support 22",
+      "to": "Support 22"
+    },
+    {
+      "id": "24504",
+      "from": "Path of Support 28",
+      "to": "Support 28"
+    },
+    {
+      "id": "24601",
+      "from": "Path of Support 1",
+      "to": "Support 1"
+    },
+    {
+      "id": "24602",
+      "from": "Path of Support 8",
+      "to": "Support 8"
+    },
+    {
+      "id": "24603",
+      "from": "Path of Support 13",
+      "to": "Support 13"
+    },
+    {
+      "id": "24604",
+      "from": "Path of Support 26",
+      "to": "Support 26"
+    },
+    {
+      "id": "30101",
+      "from": "Stedes Gate Ruins 1",
+      "to": "Stimen Vaults Floor 1"
+    },
+    {
+      "id": "30102",
+      "from": "Stedes Gate Ruins 2",
+      "to": "Stimen Vaults Floor 2"
+    },
+    {
+      "id": "30103",
+      "from": "Stedes Gate Ruins 3",
+      "to": "Stimen Vaults Floor 3"
+    },
+    {
+      "id": "30104",
+      "from": "Stedes Gate Ruins 4",
+      "to": "Stimen Vaults Floor 4"
+    },
+    {
+      "id": "30105",
+      "from": "Stedes Gate Ruins 5",
+      "to": "Stimen Vaults Floor 5"
+    },
+    {
+      "id": "30106",
+      "from": "Stedes Gate Ruins 6",
+      "to": "Stimen Vaults Floor 6"
+    },
+    {
+      "id": "30107",
+      "from": "Stedes Gate Ruins 7",
+      "to": "Stimen Vaults Floor 7"
+    },
+    {
+      "id": "30108",
+      "from": "Stedes Gate Ruins 8",
+      "to": "Stimen Vaults Floor 8"
+    },
+    {
+      "id": "30109",
+      "from": "Stedes Gate Ruins 9",
+      "to": "Stimen Vaults Floor 9"
+    },
+    {
+      "id": "30110",
+      "from": "Stedes Gate Ruins 10",
+      "to": "Stimen Vaults Floor 10"
+    },
+    {
+      "id": "30111",
+      "from": "Stedes Gate Ruins 11",
+      "to": "Stimen Vaults Floor 11"
+    },
+    {
+      "id": "30112",
+      "from": "Stedes Gate Ruins 12",
+      "to": "Stimen Vaults Floor 12"
+    },
+    {
+      "id": "30113",
+      "from": "Stedes Gate Ruins 13",
+      "to": "Stimen Vaults Floor 13"
+    },
+    {
+      "id": "30114",
+      "from": "Stedes Gate Ruins 14",
+      "to": "Stimen Vaults Floor 14"
+    },
+    {
+      "id": "30115",
+      "from": "Stedes Gate Ruins 15",
+      "to": "Stimen Vaults Floor 15"
+    },
+    {
+      "id": "30116",
+      "from": "Stedes Gate Ruins 16",
+      "to": "Stimen Vaults Floor 16"
+    },
+    {
+      "id": "30117",
+      "from": "Stedes Gate Ruins 17",
+      "to": "Stimen Vaults Floor 17"
+    },
+    {
+      "id": "30118",
+      "from": "Stedes Gate Ruins 18",
+      "to": "Stimen Vaults Floor 18"
+    },
+    {
+      "id": "30119",
+      "from": "Stedes Gate Ruins 19",
+      "to": "Stimen Vaults Floor 19"
+    },
+    {
+      "id": "30120",
+      "from": "Stedes Gate Ruins 20",
+      "to": "Stimen Vaults Floor 20"
+    },
+    {
+      "id": "30121",
+      "from": "Stedes Gate Ruins 21",
+      "to": "Stimen Vaults Floor 21"
+    },
+    {
+      "id": "30122",
+      "from": "Stedes Gate Ruins 22",
+      "to": "Stimen Vaults Floor 22"
+    },
+    {
+      "id": "30123",
+      "from": "Stedes Gate Ruins 23",
+      "to": "Stimen Vaults Floor 23"
+    },
+    {
+      "id": "30124",
+      "from": "Stedes Gate Ruins 24",
+      "to": "Stimen Vaults Floor 24"
+    },
+    {
+      "id": "30125",
+      "from": "Stedes Gate Ruins 25",
+      "to": "Stimen Vaults Floor 25"
+    },
+    {
+      "id": "30126",
+      "from": "Stedes Gate Ruins 26",
+      "to": "Stimen Vaults Floor 26"
+    },
+    {
+      "id": "30127",
+      "from": "Stedes Gate Ruins 27",
+      "to": "Stimen Vaults Floor 27"
+    },
+    {
+      "id": "30128",
+      "from": "Stedes Gate Ruins 28",
+      "to": "Stimen Vaults Floor 28"
+    },
+    {
+      "id": "30129",
+      "from": "Stedes Gate Ruins 29",
+      "to": "Stimen Vaults Floor 29"
+    },
+    {
+      "id": "30130",
+      "from": "Stedes Gate Ruins 30",
+      "to": "Stimen Vaults Floor 30"
+    },
+    {
+      "id": "30131",
+      "from": "Stedes Gate Ruins 31",
+      "to": "Stimen Vaults Floor 31"
+    },
+    {
+      "id": "30132",
+      "from": "Stedes Gate Ruins 32",
+      "to": "Stimen Vaults Floor 32"
+    },
+    {
+      "id": "30133",
+      "from": "Stedes Gate Ruins 33",
+      "to": "Stimen Vaults Floor 33"
+    },
+    {
+      "id": "30134",
+      "from": "Stedes Gate Ruins 34",
+      "to": "Stimen Vaults Floor 34"
+    },
+    {
+      "id": "30135",
+      "from": "Stedes Gate Ruins 35",
+      "to": "Stimen Vaults Floor 35"
+    },
+    {
+      "id": "30136",
+      "from": "Stedes Gate Ruins 36",
+      "to": "Stimen Vaults Floor 36"
+    },
+    {
+      "id": "30137",
+      "from": "Stedes Gate Ruins 37",
+      "to": "Stimen Vaults Floor 37"
+    },
+    {
+      "id": "30138",
+      "from": "Stedes Gate Ruins 38",
+      "to": "Stimen Vaults Floor 38"
+    },
+    {
+      "id": "30139",
+      "from": "Stedes Gate Ruins 39",
+      "to": "Stimen Vaults Floor 39"
+    },
+    {
+      "id": "30140",
+      "from": "Stedes Gate Ruins 40",
+      "to": "Stimen Vaults Floor 40"
+    },
+    {
+      "id": "30141",
+      "from": "Stedes Gate Ruins 41",
+      "to": "Stimen Vaults Floor 41"
+    },
+    {
+      "id": "30142",
+      "from": "Stedes Gate Ruins 42",
+      "to": "Stimen Vaults Floor 42"
+    },
+    {
+      "id": "30143",
+      "from": "Stedes Gate Ruins 43",
+      "to": "Stimen Vaults Floor 43"
+    },
+    {
+      "id": "30144",
+      "from": "Stedes Gate Ruins 44",
+      "to": "Stimen Vaults Floor 44"
+    },
+    {
+      "id": "30145",
+      "from": "Stedes Gate Ruins 45",
+      "to": "Stimen Vaults Floor 45"
+    },
+    {
+      "id": "30146",
+      "from": "Stedes Gate Ruins 46",
+      "to": "Stimen Vaults Floor 46"
+    },
+    {
+      "id": "30147",
+      "from": "Stedes Gate Ruins 47",
+      "to": "Stimen Vaults Floor 47"
+    },
+    {
+      "id": "30148",
+      "from": "Stedes Gate Ruins 48",
+      "to": "Stimen Vaults Floor 48"
+    },
+    {
+      "id": "30149",
+      "from": "Stedes Gate Ruins 49",
+      "to": "Stimen Vaults Floor 49"
+    },
+    {
+      "id": "30150",
+      "from": "Stedes Gate Ruins 50",
+      "to": "Stimen Vaults Floor 50"
+    },
+    {
+      "id": "30151",
+      "from": "Stedes Gate Ruins 51",
+      "to": "Stimen Vaults Floor 51"
+    },
+    {
+      "id": "30152",
+      "from": "Stedes Gate Ruins 52",
+      "to": "Stimen Vaults Floor 52"
+    },
+    {
+      "id": "30153",
+      "from": "Stedes Gate Ruins 53",
+      "to": "Stimen Vaults Floor 53"
+    },
+    {
+      "id": "30154",
+      "from": "Stedes Gate Ruins 54",
+      "to": "Stimen Vaults Floor 54"
+    },
+    {
+      "id": "30155",
+      "from": "Stedes Gate Ruins 55",
+      "to": "Stimen Vaults Floor 55"
+    },
+    {
+      "id": "30156",
+      "from": "Stedes Gate Ruins 56",
+      "to": "Stimen Vaults Floor 56"
+    },
+    {
+      "id": "30157",
+      "from": "Stedes Gate Ruins 57",
+      "to": "Stimen Vaults Floor 57"
+    },
+    {
+      "id": "30158",
+      "from": "Stedes Gate Ruins 58",
+      "to": "Stimen Vaults Floor 58"
+    },
+    {
+      "id": "30159",
+      "from": "Stedes Gate Ruins 59",
+      "to": "Stimen Vaults Floor 59"
+    },
+    {
+      "id": "30160",
+      "from": "Stedes Gate Ruins 60",
+      "to": "Stimen Vaults Floor 60"
+    },
+    {
+      "id": "30161",
+      "from": "Stedes Gate Ruins 61",
+      "to": "Stimen Vaults Floor 61"
+    },
+    {
+      "id": "30162",
+      "from": "Stedes Gate Ruins 62",
+      "to": "Stimen Vaults Floor 62"
+    },
+    {
+      "id": "30163",
+      "from": "Stedes Gate Ruins 63",
+      "to": "Stimen Vaults Floor 63"
+    },
+    {
+      "id": "30164",
+      "from": "Stedes Gate Ruins 64",
+      "to": "Stimen Vaults Floor 64"
+    },
+    {
+      "id": "30165",
+      "from": "Stedes Gate Ruins 65",
+      "to": "Stimen Vaults Floor 65"
+    },
+    {
+      "id": "30166",
+      "from": "Stedes Gate Ruins 66",
+      "to": "Stimen Vaults Floor 66"
+    },
+    {
+      "id": "30167",
+      "from": "Stedes Gate Ruins 67",
+      "to": "Stimen Vaults Floor 67"
+    },
+    {
+      "id": "30168",
+      "from": "Stedes Gate Ruins 68",
+      "to": "Stimen Vaults Floor 68"
+    },
+    {
+      "id": "30169",
+      "from": "Stedes Gate Ruins 69",
+      "to": "Stimen Vaults Floor 69"
+    },
+    {
+      "id": "30170",
+      "from": "Stedes Gate Ruins 70",
+      "to": "Stimen Vaults Floor 70"
+    },
+    {
+      "id": "30171",
+      "from": "Stedes Gate Ruins 71",
+      "to": "Stimen Vaults Floor 71"
+    },
+    {
+      "id": "30172",
+      "from": "Stedes Gate Ruins 72",
+      "to": "Stimen Vaults Floor 72"
+    },
+    {
+      "id": "30173",
+      "from": "Stedes Gate Ruins 73",
+      "to": "Stimen Vaults Floor 73"
+    },
+    {
+      "id": "30174",
+      "from": "Stedes Gate Ruins 74",
+      "to": "Stimen Vaults Floor 74"
+    },
+    {
+      "id": "30175",
+      "from": "Stedes Gate Ruins 75",
+      "to": "Stimen Vaults Floor 75"
+    },
+    {
+      "id": "30200",
+      "from": "Stedes Gate Ruins 75",
+      "to": "Stimen Vaults Floor 75"
+    },
+    {
+      "id": "31101",
+      "from": "Stedes Gate Ruins Lv.1",
+      "to": "Stimen Vaults Floor 1"
+    },
+    {
+      "id": "31102",
+      "from": "Stedes Gate Ruins Lv.2",
+      "to": "Stimen Vaults Floor 2"
+    },
+    {
+      "id": "31103",
+      "from": "Stedes Gate Ruins Lv.3",
+      "to": "Stimen Vaults Floor 3"
+    },
+    {
+      "id": "31104",
+      "from": "Stedes Gate Ruins Lv.4",
+      "to": "Stimen Vaults Floor 4"
+    },
+    {
+      "id": "31105",
+      "from": "Stedes Gate Ruins Lv.5",
+      "to": "Stimen Vaults Floor 5"
+    },
+    {
+      "id": "31106",
+      "from": "Stedes Gate Ruins Lv.6",
+      "to": "Stimen Vaults Floor 6"
+    },
+    {
+      "id": "31107",
+      "from": "Stedes Gate Ruins Lv.7",
+      "to": "Stimen Vaults Floor 7"
+    },
+    {
+      "id": "31108",
+      "from": "Stedes Gate Ruins Lv.8",
+      "to": "Stimen Vaults Floor 8"
+    },
+    {
+      "id": "31109",
+      "from": "Stedes Gate Ruins Lv.9",
+      "to": "Stimen Vaults Floor 9"
+    },
+    {
+      "id": "31110",
+      "from": "Stedes Gate Ruins Lv.10",
+      "to": "Stimen Vaults Floor 10"
+    },
+    {
+      "id": "31111",
+      "from": "Stedes Gate Ruins Lv.11",
+      "to": "Stimen Vaults Floor 11"
+    },
+    {
+      "id": "31112",
+      "from": "Stedes Gate Ruins Lv.12",
+      "to": "Stimen Vaults Floor 12"
+    },
+    {
+      "id": "31113",
+      "from": "Stedes Gate Ruins Lv.13",
+      "to": "Stimen Vaults Floor 13"
+    },
+    {
+      "id": "31114",
+      "from": "Stedes Gate Ruins Lv.14",
+      "to": "Stimen Vaults Floor 14"
+    },
+    {
+      "id": "31115",
+      "from": "Stedes Gate Ruins Lv.15",
+      "to": "Stimen Vaults Floor 15"
+    },
+    {
+      "id": "31116",
+      "from": "Stedes Gate Ruins Lv.16",
+      "to": "Stimen Vaults Floor 16"
+    },
+    {
+      "id": "31117",
+      "from": "Stedes Gate Ruins Lv.17",
+      "to": "Stimen Vaults Floor 17"
+    },
+    {
+      "id": "31118",
+      "from": "Stedes Gate Ruins Lv.18",
+      "to": "Stimen Vaults Floor 18"
+    },
+    {
+      "id": "31119",
+      "from": "Stedes Gate Ruins Lv.19",
+      "to": "Stimen Vaults Floor 19"
+    },
+    {
+      "id": "31120",
+      "from": "Stedes Gate Ruins Lv.20",
+      "to": "Stimen Vaults Floor 20"
+    },
+    {
+      "id": "31121",
+      "from": "Stedes Gate Ruins Lv.21",
+      "to": "Stimen Vaults Floor 21"
+    },
+    {
+      "id": "31122",
+      "from": "Stedes Gate Ruins Lv.22",
+      "to": "Stimen Vaults Floor 22"
+    },
+    {
+      "id": "31123",
+      "from": "Stedes Gate Ruins Lv.23",
+      "to": "Stimen Vaults Floor 23"
+    },
+    {
+      "id": "31124",
+      "from": "Stedes Gate Ruins Lv.24",
+      "to": "Stimen Vaults Floor 24"
+    },
+    {
+      "id": "31125",
+      "from": "Stedes Gate Ruins Lv.25",
+      "to": "Stimen Vaults Floor 25"
+    },
+    {
+      "id": "31126",
+      "from": "Stedes Gate Ruins Lv.26",
+      "to": "Stimen Vaults Floor 26"
+    },
+    {
+      "id": "31127",
+      "from": "Stedes Gate Ruins Lv.27",
+      "to": "Stimen Vaults Floor 27"
+    },
+    {
+      "id": "31128",
+      "from": "Stedes Gate Ruins Lv.28",
+      "to": "Stimen Vaults Floor 28"
+    },
+    {
+      "id": "31129",
+      "from": "Stedes Gate Ruins Lv.29",
+      "to": "Stimen Vaults Floor 29"
+    },
+    {
+      "id": "31130",
+      "from": "Stedes Gate Ruins Lv.30",
+      "to": "Stimen Vaults Floor 30"
+    },
+    {
+      "id": "31131",
+      "from": "Stedes Gate Ruins Lv.31",
+      "to": "Stimen Vaults Floor 31"
+    },
+    {
+      "id": "31132",
+      "from": "Stedes Gate Ruins Lv.32",
+      "to": "Stimen Vaults Floor 32"
+    },
+    {
+      "id": "31133",
+      "from": "Stedes Gate Ruins Lv.33",
+      "to": "Stimen Vaults Floor 33"
+    },
+    {
+      "id": "31134",
+      "from": "Stedes Gate Ruins Lv.34",
+      "to": "Stimen Vaults Floor 34"
+    },
+    {
+      "id": "31135",
+      "from": "Stedes Gate Ruins Lv.35",
+      "to": "Stimen Vaults Floor 35"
+    },
+    {
+      "id": "31136",
+      "from": "Stedes Gate Ruins Lv.36",
+      "to": "Stimen Vaults Floor 36"
+    },
+    {
+      "id": "31137",
+      "from": "Stedes Gate Ruins Lv.37",
+      "to": "Stimen Vaults Floor 37"
+    },
+    {
+      "id": "31138",
+      "from": "Stedes Gate Ruins Lv.38",
+      "to": "Stimen Vaults Floor 38"
+    },
+    {
+      "id": "31139",
+      "from": "Stedes Gate Ruins Lv.39",
+      "to": "Stimen Vaults Floor 39"
+    },
+    {
+      "id": "31140",
+      "from": "Stedes Gate Ruins Lv.40",
+      "to": "Stimen Vaults Floor 40"
+    },
+    {
+      "id": "31141",
+      "from": "Stedes Gate Ruins Lv.41",
+      "to": "Stimen Vaults Floor 41"
+    },
+    {
+      "id": "31142",
+      "from": "Stedes Gate Ruins Lv.42",
+      "to": "Stimen Vaults Floor 42"
+    },
+    {
+      "id": "31143",
+      "from": "Stedes Gate Ruins Lv.43",
+      "to": "Stimen Vaults Floor 43"
+    },
+    {
+      "id": "31144",
+      "from": "Stedes Gate Ruins Lv.44",
+      "to": "Stimen Vaults Floor 44"
+    },
+    {
+      "id": "31145",
+      "from": "Stedes Gate Ruins Lv.45",
+      "to": "Stimen Vaults Floor 45"
+    },
+    {
+      "id": "31146",
+      "from": "Stedes Gate Ruins Lv.46",
+      "to": "Stimen Vaults Floor 46"
+    },
+    {
+      "id": "31147",
+      "from": "Stedes Gate Ruins Lv.47",
+      "to": "Stimen Vaults Floor 47"
+    },
+    {
+      "id": "31148",
+      "from": "Stedes Gate Ruins Lv.48",
+      "to": "Stimen Vaults Floor 48"
+    },
+    {
+      "id": "31149",
+      "from": "Stedes Gate Ruins Lv.49",
+      "to": "Stimen Vaults Floor 49"
+    },
+    {
+      "id": "31150",
+      "from": "Stedes Gate Ruins Lv.50",
+      "to": "Stimen Vaults Floor 50"
+    },
+    {
+      "id": "31151",
+      "from": "Stedes Gate Ruins Lv.51",
+      "to": "Stimen Vaults Floor 51"
+    },
+    {
+      "id": "31152",
+      "from": "Stedes Gate Ruins Lv.52",
+      "to": "Stimen Vaults Floor 52"
+    },
+    {
+      "id": "31153",
+      "from": "Stedes Gate Ruins Lv.53",
+      "to": "Stimen Vaults Floor 53"
+    },
+    {
+      "id": "31154",
+      "from": "Stedes Gate Ruins Lv.54",
+      "to": "Stimen Vaults Floor 54"
+    },
+    {
+      "id": "31155",
+      "from": "Stedes Gate Ruins Lv.55",
+      "to": "Stimen Vaults Floor 55"
+    },
+    {
+      "id": "31156",
+      "from": "Stedes Gate Ruins Lv.56",
+      "to": "Stimen Vaults Floor 56"
+    },
+    {
+      "id": "31157",
+      "from": "Stedes Gate Ruins Lv.57",
+      "to": "Stimen Vaults Floor 57"
+    },
+    {
+      "id": "31158",
+      "from": "Stedes Gate Ruins Lv.58",
+      "to": "Stimen Vaults Floor 58"
+    },
+    {
+      "id": "31159",
+      "from": "Stedes Gate Ruins Lv.59",
+      "to": "Stimen Vaults Floor 59"
+    },
+    {
+      "id": "31160",
+      "from": "Stedes Gate Ruins Lv.60",
+      "to": "Stimen Vaults Floor 60"
+    },
+    {
+      "id": "31161",
+      "from": "Stedes Gate Ruins Lv.61",
+      "to": "Stimen Vaults Floor 61"
+    },
+    {
+      "id": "31162",
+      "from": "Stedes Gate Ruins Lv.62",
+      "to": "Stimen Vaults Floor 62"
+    },
+    {
+      "id": "31163",
+      "from": "Stedes Gate Ruins Lv.63",
+      "to": "Stimen Vaults Floor 63"
+    },
+    {
+      "id": "31164",
+      "from": "Stedes Gate Ruins Lv.64",
+      "to": "Stimen Vaults Floor 64"
+    },
+    {
+      "id": "31165",
+      "from": "Stedes Gate Ruins Lv.65",
+      "to": "Stimen Vaults Floor 65"
+    },
+    {
+      "id": "31166",
+      "from": "Stedes Gate Ruins Lv.66",
+      "to": "Stimen Vaults Floor 66"
+    },
+    {
+      "id": "31167",
+      "from": "Stedes Gate Ruins Lv.67",
+      "to": "Stimen Vaults Floor 67"
+    },
+    {
+      "id": "31168",
+      "from": "Stedes Gate Ruins Lv.68",
+      "to": "Stimen Vaults Floor 68"
+    },
+    {
+      "id": "31169",
+      "from": "Stedes Gate Ruins Lv.69",
+      "to": "Stimen Vaults Floor 69"
+    },
+    {
+      "id": "31170",
+      "from": "Stedes Gate Ruins Lv.70",
+      "to": "Stimen Vaults Floor 70"
+    },
+    {
+      "id": "31171",
+      "from": "Stedes Gate Ruins Lv.71",
+      "to": "Stimen Vaults Floor 71"
+    },
+    {
+      "id": "31172",
+      "from": "Stedes Gate Ruins Lv.72",
+      "to": "Stimen Vaults Floor 72"
+    },
+    {
+      "id": "31173",
+      "from": "Stedes Gate Ruins Lv.73",
+      "to": "Stimen Vaults Floor 73"
+    },
+    {
+      "id": "31174",
+      "from": "Stedes Gate Ruins Lv.74",
+      "to": "Stimen Vaults Floor 74"
+    },
+    {
+      "id": "31175",
+      "from": "Stedes Gate Ruins Lv.75",
+      "to": "Stimen Vaults Floor 75"
+    }
+  ],
+  "missingInSource": [
+    "95",
+    "1150",
+    "1151",
+    "1152",
+    "1153",
+    "1154",
+    "1611",
+    "1621",
+    "1631",
+    "1632",
+    "1633",
+    "5604",
+    "5812",
+    "6511",
+    "6512",
+    "6513",
+    "6514",
+    "6515",
+    "6521",
+    "6522",
+    "6523",
+    "6524",
+    "6525",
+    "6541",
+    "6542",
+    "6543",
+    "6544",
+    "6545",
+    "6561",
+    "6562",
+    "6563",
+    "6564",
+    "6565",
+    "7152",
+    "11001",
+    "12022",
+    "12023",
+    "12052",
+    "32101",
+    "32102",
+    "32103",
+    "32104",
+    "32105",
+    "32106",
+    "32107",
+    "32108",
+    "32109",
+    "32110",
+    "32111",
+    "32112",
+    "32113",
+    "32114",
+    "32115",
+    "32116",
+    "32117",
+    "32118",
+    "32119",
+    "32120",
+    "32121",
+    "32122",
+    "32123",
+    "32124",
+    "32125",
+    "32126",
+    "32127",
+    "32128",
+    "32129",
+    "32130",
+    "32131",
+    "32132",
+    "32133",
+    "32134",
+    "32135",
+    "32136",
+    "32137",
+    "32138",
+    "32139",
+    "32140",
+    "32141",
+    "32142",
+    "32143",
+    "32144",
+    "32145",
+    "32146",
+    "32147",
+    "32148",
+    "32149",
+    "32150",
+    "32151",
+    "32152",
+    "32153",
+    "32154",
+    "32155",
+    "32156",
+    "32157",
+    "32158",
+    "32159",
+    "32160"
+  ],
+  "blankInSource": []
+}

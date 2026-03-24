@@ -394,17 +394,17 @@
       },
       {
         "skillId": 1508,
-        "name": "场地标记01",
+        "name": "Eluna Skill 04",
         "imagePath": "/images/verdant_oracle/skill/weapon_fh-01_kx07_-6626360985139412137.png"
       },
       {
         "skillId": 1516,
-        "name": "场地标记01",
+        "name": "艾露娜切换技",
         "imagePath": "/images/verdant_oracle/skill/weapon_fh-01_kx08_-5368673168487156305.png"
       },
       {
         "skillId": 1513,
-        "name": "场地标记01",
+        "name": "Vines' Embrace",
         "imagePath": "/images/verdant_oracle/skill/weapon_fh-01_tg02_-6034095740534119129.png"
       },
       {
@@ -414,7 +414,7 @@
       },
       {
         "skillId": 1510,
-        "name": "场地标记01",
+        "name": "Vines' Embrace",
         "imagePath": "/images/verdant_oracle/skill/weapon_fh-01_ult03_-922524136805580252.png"
       }
     ]

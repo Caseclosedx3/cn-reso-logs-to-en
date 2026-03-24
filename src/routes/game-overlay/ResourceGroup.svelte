@@ -34,7 +34,7 @@
   onpointerdown={(e) => startDrag(e, { kind: "group", key: "resourceGroup" }, groupPos)}
 >
   {#if editing}
-    <div class="group-tag">资源区</div>
+    <div class="group-tag">Resources</div>
   {/if}
 
   <div class="resources-panel" data-class={classKey}>

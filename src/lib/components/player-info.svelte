@@ -69,6 +69,20 @@
     }
     return className;
   });
+
+  const showAbilityScore = $derived.by(() => {
+    if (abilityScore === 0) return false;
+    return isYou
+      ? SETTINGS.live.general.state.showYourAbilityScore
+      : SETTINGS.live.general.state.showOthersAbilityScore;
+  });
+
+  const showSeasonStrength = $derived.by(() => {
+    if (seasonStrength <= 0) return false;
+    return isYou
+      ? SETTINGS.live.general.state.showYourSeasonStrength
+      : SETTINGS.live.general.state.showOthersSeasonStrength;
+  });
 </script>
 
 <div class="ml-2 flex">
@@ -83,20 +97,20 @@
   <!-- svelte-ignore a11y_click_events_have_key_events -->
   <span class="ml-1 cursor-pointer truncate" onclick={(error) => copyToClipboard(error, `#${uid}`)} {@attach tooltip(() => `UID: #${uid}`)}>
     {#if abilityScore !== 0}
-      {#if SETTINGS.live.general.state.shortenAbilityScore}
-        {#if isYou && SETTINGS.live.general.state.showYourAbilityScore}
+      {#if showAbilityScore}
+        {#if SETTINGS.live.general.state.shortenAbilityScore}
           <AbbreviatedNumber num={abilityScore} />
-  {:else if !isYou && SETTINGS.live.general.state.showOthersAbilityScore}
-          <AbbreviatedNumber num={abilityScore} />
+        {:else}
+          <span>{abilityScore}</span>
         {/if}
-      {:else}
-        <span>{abilityScore}</span>
       {/if}
     {:else}
       ??
     {/if}
-    {#if seasonStrength > 0 && (isYou ? SETTINGS.live.general.state.showYourSeasonStrength : SETTINGS.live.general.state.showOthersSeasonStrength)}
-      <span class="-ml-0.5 text-muted-foreground tabular-nums">({seasonStrength})</span>
+    {#if showSeasonStrength}
+      <span class="text-muted-foreground tabular-nums"
+        >&nbsp;({seasonStrength})</span
+      >
     {/if}
     {nameDisplay()}
   </span>
