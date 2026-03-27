@@ -4,7 +4,7 @@
   import SettingsSelect from "./settings-select.svelte";
   import SettingsSlider from "./settings-slider.svelte";
   import { SETTINGS } from "$lib/settings-store";
-  import { setEventUpdateRateMs } from "$lib/api";
+  import { setEventUpdateRateMs, setSplitEncountersOnNewPhase } from "$lib/api";
   import ChevronDown from "virtual:icons/lucide/chevron-down";
   import {
     liveDpsPlayerColumns,
@@ -26,6 +26,14 @@
   $effect(() => {
     if (_mounted) {
       void setEventUpdateRateMs(SETTINGS.live.general.state.eventUpdateRateMs);
+    }
+  });
+
+  $effect(() => {
+    if (_mounted) {
+      void setSplitEncountersOnNewPhase(
+        SETTINGS.live.general.state.splitEncountersOnNewPhase,
+      );
     }
   });
 
@@ -92,6 +100,7 @@
           <SettingsSwitch bind:checked={SETTINGS.live.general.state.relativeToTopHealSkill} label="Relative to Top Heal (Skill)" description="Scale colour bars relative to the top heal skill instead of all skills. Useful for 20-player or world bosses." />
           <SettingsSwitch bind:checked={SETTINGS.live.general.state.relativeToTopTankedPlayer} label="Relative to Top Tanked (Player)" description="Scale colour bars relative to the top tanked player instead of all players. Useful for 20-player or world bosses." />
           <SettingsSwitch bind:checked={SETTINGS.live.general.state.relativeToTopTankedSkill} label="Relative to Top Tanked (Skill)" description="Scale colour bars relative to the top tanked skill instead of all skills. Useful for 20-player or world bosses." />
+          <SettingsSwitch bind:checked={SETTINGS.live.general.state.splitEncountersOnNewPhase} label="Split Encounters On New Phase" description="When enabled, scene/server/objective phase transitions automatically reset to a new encounter. Disable to keep one continuous parse until manual reset." />
           <SettingsSwitch bind:checked={SETTINGS.live.general.state.shortenTps} label="Shorten TPS Values" description="Display TPS as 5k, 50k, etc." />
           <SettingsSwitch bind:checked={SETTINGS.live.general.state.shortenAbilityScore} label="Shorten Ability Score" description="Display ability score in abbreviated form" />
           <SettingsSwitch bind:checked={SETTINGS.live.general.state.shortenDps} label="Shorten DPS Values" description="Display DPS as 5k, 50k, etc." />

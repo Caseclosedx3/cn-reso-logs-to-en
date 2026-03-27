@@ -60,6 +60,7 @@ pub fn run() {
             live::commands::set_monitor_all_buff,
             live::commands::set_buff_priority,
             live::commands::set_buff_counter_rules,
+            live::commands::set_split_encounters_on_new_phase,
             database::commands::get_recent_encounters,
             database::commands::get_unique_scene_names,
             database::commands::get_unique_boss_names,

@@ -9,7 +9,7 @@
   import { goto } from "$app/navigation";
   import { SETTINGS } from '$lib/settings-store';
   import { commands, type CounterRule } from "$lib/bindings";
-  import { setMonitoredPanelAttrs } from "$lib/api";
+  import { setMonitoredPanelAttrs, setSplitEncountersOnNewPhase } from "$lib/api";
   import { expandBuffSelection } from "$lib/config/buff-name-table";
   import { applyCustomFonts } from "$lib/font-loader";
   import { getCounterRules, getDefaultMonitoredBuffIds } from "$lib/skill-mappings";
@@ -39,6 +39,20 @@
 
   let lastMonitorSyncKey = "";
   let lastOverlayVisibleState: boolean | null = null;
+  let lastSplitEncounterSetting: boolean | null = null;
+
+  $effect(() => {
+    const splitEncountersOnNewPhase = SETTINGS.live.general.state.splitEncountersOnNewPhase;
+    void (async () => {
+      if (lastSplitEncounterSetting === splitEncountersOnNewPhase) return;
+      lastSplitEncounterSetting = splitEncountersOnNewPhase;
+      try {
+        await setSplitEncountersOnNewPhase(splitEncountersOnNewPhase);
+      } catch (error) {
+        console.error("[settings] failed to sync split encounter setting", error);
+      }
+    })();
+  });
 
   $effect(() => {
     const enabled = SETTINGS.skillMonitor.state.enabled;

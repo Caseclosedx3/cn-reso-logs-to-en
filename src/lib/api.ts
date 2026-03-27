@@ -243,6 +243,9 @@ export const setMonitoredPanelAttrs = (attrIds: number[]): Promise<void> =>
 export const setBuffCounterRules = (rules: CounterRule[]): Promise<void> =>
   invoke("set_buff_counter_rules", { rules });
 
+export const setSplitEncountersOnNewPhase = (enabled: boolean): Promise<void> =>
+  invoke("set_split_encounters_on_new_phase", { enabled });
+
 // =========================
 // 模组计算器相关 API
 // =========================

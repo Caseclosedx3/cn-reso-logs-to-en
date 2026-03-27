@@ -350,6 +350,7 @@ const DEFAULT_GENERAL_SETTINGS = {
   relativeToTopHealSkill: true,
   relativeToTopTankedPlayer: true,
   relativeToTopTankedSkill: true,
+  splitEncountersOnNewPhase: true,
   shortenAbilityScore: true,
   shortenDps: true,
   shortenTps: true,

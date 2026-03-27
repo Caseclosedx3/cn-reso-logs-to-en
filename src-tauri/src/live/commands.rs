@@ -196,3 +196,14 @@ pub fn set_buff_counter_rules(
     state_manager.set_buff_counter_rules(rules)?;
     Ok(())
 }
+
+/// Sets whether encounters should automatically split on server/phase changes.
+#[tauri::command]
+#[specta::specta]
+pub fn set_split_encounters_on_new_phase(
+    enabled: bool,
+    state_manager: tauri::State<'_, AppStateManager>,
+) -> Result<(), String> {
+    state_manager.set_split_encounters_on_new_phase(enabled)?;
+    Ok(())
+}

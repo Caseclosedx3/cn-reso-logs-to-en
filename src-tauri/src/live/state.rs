@@ -73,6 +73,8 @@ pub struct AppState {
     pub battle_state: BattleStateMachine,
     /// If set, automatic reset can execute only after this timestamp.
     pub pending_auto_reset: Option<Instant>,
+    /// Whether to auto-split encounters on server/phase transitions.
+    pub split_encounters_on_new_phase: bool,
 }
 
 #[derive(Debug)]
@@ -118,6 +120,7 @@ pub enum LiveControlCommand {
     SetMonitorAllBuff(bool),
     SetBuffPriority(Vec<i32>),
     SetBuffCounterRules(Vec<CounterRule>),
+    SetSplitEncountersOnNewPhase(bool),
 }
 
 impl AppState {
@@ -137,6 +140,7 @@ impl AppState {
             server_clock_offset: 0,
             battle_state: BattleStateMachine::default(),
             pending_auto_reset: None,
+            split_encounters_on_new_phase: true,
         }
     }
 
@@ -444,11 +448,25 @@ impl AppStateManager {
             LiveControlCommand::SetBuffCounterRules(rules) => {
                 state.local_monitor.counter_tracker.set_rules(rules);
             }
+            LiveControlCommand::SetSplitEncountersOnNewPhase(enabled) => {
+                state.split_encounters_on_new_phase = enabled;
+                if !enabled {
+                    // If auto-splitting is disabled while a deferred reset is armed, cancel it.
+                    state.pending_auto_reset = None;
+                }
+            }
         }
     }
 
     fn on_server_change(&self, state: &mut AppState) {
         use crate::live::opcodes_process::on_server_change;
+        if !state.split_encounters_on_new_phase {
+            info!(
+                target: "app::live",
+                "Auto split disabled: skipping server-change reset"
+            );
+            return;
+        }
         state.pending_auto_reset = None;
 
         persist_and_save_encounter(state, false, "server_change");
@@ -496,8 +514,12 @@ impl AppStateManager {
                     prev_scene, scene_id
                 );
                 state.pending_auto_reset = None;
-                info!("Scene changed: ending active encounter");
-                self.reset_encounter(state, false);
+                if state.split_encounters_on_new_phase {
+                    info!("Scene changed: ending active encounter");
+                    self.reset_encounter(state, false);
+                } else {
+                    info!("Auto split disabled: ignoring scene-change reset");
+                }
             }
 
             // Update encounter with scene info
@@ -824,6 +846,15 @@ impl AppStateManager {
     }
 
     fn apply_reset_reason(&self, state: &mut AppState, reason: EncounterResetReason) {
+        if !state.split_encounters_on_new_phase {
+            info!(
+                target: "app::live",
+                "Auto split disabled: ignoring reset reason {:?}",
+                reason
+            );
+            state.pending_auto_reset = None;
+            return;
+        }
         let encounter_has_stats = state.encounter.total_dmg > 0
             || state
                 .encounter
@@ -1010,6 +1041,10 @@ impl AppStateManager {
 
     pub fn set_buff_counter_rules(&self, rules: Vec<CounterRule>) -> Result<(), String> {
         self.send_control(LiveControlCommand::SetBuffCounterRules(rules))
+    }
+
+    pub fn set_split_encounters_on_new_phase(&self, enabled: bool) -> Result<(), String> {
+        self.send_control(LiveControlCommand::SetSplitEncountersOnNewPhase(enabled))
     }
 }
 
